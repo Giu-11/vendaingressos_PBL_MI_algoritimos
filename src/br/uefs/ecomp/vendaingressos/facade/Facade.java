@@ -1,10 +1,10 @@
 package br.uefs.ecomp.vendaingressos.facade;
 
 import java.util.List;
-import br.uefs.ecomp.vendaingressos.model.Controller;
-import br.uefs.ecomp.vendaingressos.model.Evento;
-import br.uefs.ecomp.vendaingressos.model.Ingresso;
-import br.uefs.ecomp.vendaingressos.model.Usuario;
+import vendaingressos.Controller;
+import vendaingressos.Evento;
+import vendaingressos.Ingresso;
+import vendaingressos.Usuario;
 
 public class Facade {
 
