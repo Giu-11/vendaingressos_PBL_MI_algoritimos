@@ -96,7 +96,7 @@ public class Usuario {
         ingressos.add(ingresso);
     }
 
-    public void cancelarIngresso(String idIngresso){
-        ingressos.removeIf(i->(Objects.equals(idIngresso, i.getId())));
+    public void cancelarIngresso(Ingresso ingresso){
+        ingressos.remove(ingresso);
     }
 }

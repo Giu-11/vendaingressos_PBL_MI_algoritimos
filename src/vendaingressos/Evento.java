@@ -54,4 +54,18 @@ public class Evento {
     public void removerAssento(String assento) {
         assentosDisponiveis.removeIf(i->(Objects.equals(i, assento)));
     }
+
+    public void compraAssento(String assento){
+        if (assentosDisponiveis.contains(assento)){
+            assentosDisponiveis.remove(assento);
+            assentosOcupados.add(assento);
+        }
+    }
+
+    public void cancelaCompra(String assento){
+        if(assentosOcupados.contains(assento)){
+            assentosOcupados.remove(assento);
+            assentosDisponiveis.add(assento);
+        }
+    }
 }
