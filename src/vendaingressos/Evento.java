@@ -10,12 +10,14 @@ public class Evento {
     private String descricao;
     private Date data;
     private List<String> assentosDisponiveis;
+    private List<String> assentosOcupados;
 
     public Evento(String nome, String descricao, Date data) {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
         this.assentosDisponiveis = new ArrayList<>();
+        this.assentosOcupados = new ArrayList<>();
     }
 
     public String getNome() {
@@ -31,7 +33,9 @@ public class Evento {
     }
 
     public void adicionarAssento(String assento) {
-        assentosDisponiveis.add(assento);
+        if((!assentosDisponiveis.contains(assento)) && (!assentosOcupados.contains(assento))) {
+            assentosDisponiveis.add(assento);
+        }
     }
 
     public List<String> getAssentosDisponiveis() {
@@ -53,5 +57,6 @@ public class Evento {
 
     public boolean isAtivo() {
         //
+        return false;
     }
 }

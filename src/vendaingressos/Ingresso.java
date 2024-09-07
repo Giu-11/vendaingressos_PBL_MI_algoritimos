@@ -1,13 +1,13 @@
 package vendaingressos;
 
 public class Ingresso {
-    private final String id;
-    private final Evento evento;
+    private String id;
+    private Evento evento;
+    private double preco;
 
-    public Ingresso(String id, Evento evento) {
-        this.id = id;
-        this.evento = evento;
+    public Ingresso(Evento evento, double preco, String a1) {
     }
+
 
     public Evento getEvento() {
         return evento;
@@ -19,11 +19,22 @@ public class Ingresso {
 
     public boolean isAtivo() {
         //consulta o evento e compara a data?
+        return false;
     }
 
     public boolean cancelar() {
+        return false;
     }
 
     public void reativar() {
+        return;
+    }
+
+    public String getAssento() {
+        return "";
+    }
+
+    public double getPreco() {
+        return preco;
     }
 }

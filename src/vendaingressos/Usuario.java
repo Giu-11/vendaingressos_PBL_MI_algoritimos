@@ -14,18 +14,20 @@ public class Usuario {
     private List<Ingresso> ingressos;
     private final boolean admin;
 
-
-    public Usuario(String email, String cpf, String nome, String senha, String login) {
-        this.email = email;
-        this.cpf = cpf;
-        this.nome = nome;
-        this.senha = senha;
-        this.login = login;
-        this.admin = false;
-        this.ingressos = new ArrayList<>();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return admin == usuario.admin && Objects.equals(login, usuario.login) && Objects.equals(nome, usuario.nome) && Objects.equals(cpf, usuario.cpf) && Objects.equals(email, usuario.email) && Objects.equals(ingressos, usuario.ingressos);
     }
 
-    public Usuario(String email, String cpf, String nome, String senha, String login, boolean admin) {
+    @Override
+    public int hashCode() {
+        return Objects.hash(login, nome, cpf, email, ingressos, admin);
+    }
+
+    public Usuario(String login, String senha, String nome, String cpf, String email, boolean admin) {
         this.email = email;
         this.cpf = cpf;
         this.nome = nome;
@@ -100,7 +102,7 @@ public class Usuario {
         return admin;
     }
 
-    public boolean login(String johndoe, String senha123) {
-        //oq isso faz?
+    public boolean login(String login, String senha) {
+        return (Objects.equals(login, this.login)) && (Objects.equals(senha, this.senha));
     }
 }
