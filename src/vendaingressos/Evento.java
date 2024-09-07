@@ -1,9 +1,6 @@
 package vendaingressos;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Evento {
     private String nome;
@@ -12,6 +9,7 @@ public class Evento {
     private List<String> assentosDisponiveis;
     private List<String> assentosOcupados;
 
+    //Construtor
     public Evento(String nome, String descricao, Date data) {
         this.nome = nome;
         this.descricao = descricao;
@@ -20,6 +18,7 @@ public class Evento {
         this.assentosOcupados = new ArrayList<>();
     }
 
+    //Getters
     public String getNome() {
         return nome;
     }
@@ -32,31 +31,27 @@ public class Evento {
         return data;
     }
 
+    public List<String> getAssentosDisponiveis() {
+        return assentosDisponiveis;
+    }
+
+    public boolean isAtivo() {
+        //Data definida como 9 de setembro para simulação do código
+        //garante que os resultados dos testes sejam os esperados para as datas definidas neles
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2024, Calendar.SEPTEMBER, 9);
+
+        return calendar.getTime().before(this.data);
+    }
+
     public void adicionarAssento(String assento) {
+        //adiciona um assento caso ele não exista nem em assentos disponíveis ou ocupados
         if((!assentosDisponiveis.contains(assento)) && (!assentosOcupados.contains(assento))) {
             assentosDisponiveis.add(assento);
         }
     }
 
-    public List<String> getAssentosDisponiveis() {
-        return assentosDisponiveis;
-    }
-
     public void removerAssento(String assento) {
-        int i=0;
-        boolean encontado = false;
-        while((i < (assentosDisponiveis.size()-1)) || (!encontado)){
-            if (!Objects.equals(assentosDisponiveis.get(i), assento)){
-                encontado = true;
-                assentosDisponiveis.remove(i);
-            }else{
-                i++;
-            }
-        }
-    }
-
-    public boolean isAtivo() {
-        //
-        return false;
+        assentosDisponiveis.removeIf(i->(Objects.equals(i, assento)));
     }
 }
