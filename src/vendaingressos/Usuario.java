@@ -14,19 +14,7 @@ public class Usuario {
     private List<Ingresso> ingressos;
     private final boolean admin;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return admin == usuario.admin && Objects.equals(login, usuario.login) && Objects.equals(nome, usuario.nome) && Objects.equals(cpf, usuario.cpf) && Objects.equals(email, usuario.email) && Objects.equals(ingressos, usuario.ingressos);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(login, nome, cpf, email, ingressos, admin);
-    }
-
+    //Construtor
     public Usuario(String login, String senha, String nome, String cpf, String email, boolean admin) {
         this.email = email;
         this.cpf = cpf;
@@ -37,6 +25,7 @@ public class Usuario {
         this.ingressos = new ArrayList<>();
     }
 
+    //Getters
     public String getLogin() {
         return login;
     }
@@ -61,6 +50,7 @@ public class Usuario {
         return ingressos;
     }
 
+    //Setters
     public void setLogin(String login) {
         this.login = login;
     }
@@ -81,28 +71,32 @@ public class Usuario {
         this.email = email;
     }
 
-    public void adicionarIngresso(Ingresso ingresso) {
-        ingressos.add(ingresso);
-    }
-
-    public void cancelarIngresso(String idIngresso){
-        int i=0;
-        boolean encontado = false;
-        while((i < (ingressos.size()-1)) || (!encontado)){
-            if (!Objects.equals(idIngresso, ingressos.get(i).getId())){
-                encontado = true;
-                ingressos.remove(i);
-            }else{
-                i++;
-            }
-        }
-    }
-
     public boolean isAdmin() {
         return admin;
     }
 
     public boolean login(String login, String senha) {
         return (Objects.equals(login, this.login)) && (Objects.equals(senha, this.senha));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return admin == usuario.admin && Objects.equals(login, usuario.login) && Objects.equals(nome, usuario.nome) && Objects.equals(cpf, usuario.cpf) && Objects.equals(email, usuario.email) && Objects.equals(ingressos, usuario.ingressos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login, nome, cpf, email, ingressos, admin);
+    }
+
+    public void adicionarIngresso(Ingresso ingresso) {
+        ingressos.add(ingresso);
+    }
+
+    public void cancelarIngresso(String idIngresso){
+        ingressos.removeIf(i->(Objects.equals(idIngresso, i.getId())));
     }
 }
