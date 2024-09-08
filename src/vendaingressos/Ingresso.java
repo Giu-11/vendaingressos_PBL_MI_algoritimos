@@ -15,7 +15,6 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class Ingresso {
-    private String id;
     private Evento evento;
     private double preco;
     private String assento;
@@ -32,10 +31,6 @@ public class Ingresso {
     //Getters
     public Evento getEvento() {
         return evento;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public boolean isAtivo() {
