@@ -50,12 +50,12 @@ public class Ingresso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ingresso ingresso = (Ingresso) o;
-        return Double.compare(preco, ingresso.preco) == 0 && ativo == ingresso.ativo && Objects.equals(id, ingresso.id) && Objects.equals(evento, ingresso.evento) && Objects.equals(assento, ingresso.assento);
+        return Double.compare(preco, ingresso.preco) == 0 && ativo == ingresso.ativo && Objects.equals(evento, ingresso.evento) && Objects.equals(assento, ingresso.assento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, evento, preco, assento, ativo);
+        return Objects.hash(evento, preco, assento, ativo);
     }
 
     public boolean cancelar() {
