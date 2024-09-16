@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Usuário do sistema, pode ser administrador
+ */
 public class Usuario {
     private String login;
     private String senha;
@@ -26,6 +28,15 @@ public class Usuario {
     private final boolean admin;
 
     //Construtor
+
+    /**
+     * @param login Login do usuário
+     * @param senha Senha do usuário
+     * @param nome nome do usuário
+     * @param cpf cpf do usuário
+     * @param email email do usuário
+     * @param admin se o usuário é um administrator
+     */
     public Usuario(String login, String senha, String nome, String cpf, String email, boolean admin) {
         this.email = email;
         this.cpf = cpf;
@@ -86,6 +97,12 @@ public class Usuario {
         return admin;
     }
 
+    /**
+     *
+     * @param login Login do usuário
+     * @param senha senha do usuário
+     * @return Se o login e senha estão corretos
+     */
     public boolean login(String login, String senha) {
         return (Objects.equals(login, this.login)) && (Objects.equals(senha, this.senha));
     }
@@ -103,10 +120,18 @@ public class Usuario {
         return Objects.hash(login, nome, cpf, email, ingressos, admin);
     }
 
+    /**
+     *
+     * @param ingresso Ingresso comprado pelo usuário
+     */
     public void adicionarIngresso(Ingresso ingresso) {
         ingressos.add(ingresso);
     }
 
+    /**
+     *
+     * @param ingresso Ingresso a ser cancelado pelo usuário
+     */
     public void cancelarIngresso(Ingresso ingresso){
         ingressos.remove(ingresso);
     }

@@ -13,6 +13,9 @@ package vendaingressos;
 
 import java.util.*;
 
+/**
+ * Evento cadastrado no sistema
+ */
 public class Evento {
     private String nome;
     private String descricao;
@@ -21,6 +24,13 @@ public class Evento {
     private List<String> assentosOcupados;
 
     //Construtor
+
+    /**
+     *
+     * @param nome nome do evento
+     * @param descricao descrição do evento
+     * @param data data do evento
+     */
     public Evento(String nome, String descricao, Date data) {
         this.nome = nome;
         this.descricao = descricao;
@@ -46,6 +56,10 @@ public class Evento {
         return assentosDisponiveis;
     }
 
+    /**
+     *
+     * @return se o evento ainda irá acontecer
+     */
     public boolean isAtivo() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
@@ -55,6 +69,10 @@ public class Evento {
         return calendar.getTime().before(this.data);
     }
 
+    /**
+     *
+     * @param assento assento a ser adicionado no evento
+     */
     public void adicionarAssento(String assento) {
         //adiciona um assento caso ele não exista nem em assentos disponíveis ou ocupados
         if((!assentosDisponiveis.contains(assento)) && (!assentosOcupados.contains(assento))) {
@@ -62,10 +80,18 @@ public class Evento {
         }
     }
 
+    /**
+     *
+     * @param assento assento a ser removido no evento
+     */
     public void removerAssento(String assento) {
         assentosDisponiveis.removeIf(i->(Objects.equals(i, assento)));
     }
 
+    /**
+     *
+     * @param assento assento que será comprado
+     */
     public void compraAssento(String assento){
         if (assentosDisponiveis.contains(assento)){
             assentosDisponiveis.remove(assento);
@@ -73,6 +99,10 @@ public class Evento {
         }
     }
 
+    /**
+     *
+     * @param assento assento que terá compra cancelada
+     */
     public void cancelaCompra(String assento){
         if(assentosOcupados.contains(assento)){
             assentosOcupados.remove(assento);

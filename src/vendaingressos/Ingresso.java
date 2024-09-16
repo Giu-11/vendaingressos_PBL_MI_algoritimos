@@ -14,13 +14,21 @@ package vendaingressos;
 import java.util.Calendar;
 import java.util.Objects;
 
+/**
+ * Ingressos para um evento
+ */
 public class Ingresso {
     private Evento evento;
     private double preco;
     private String assento;
     private boolean ativo;
 
-    //Construtor
+    /**
+     *
+     * @param evento Evento para qual o ingresso é
+     * @param preco Preço do ingresso
+     * @param assento Assento do ingresso
+     */
     public Ingresso( Evento evento, double preco, String assento) {
         this.evento = evento;
         this.preco = preco;
@@ -58,6 +66,13 @@ public class Ingresso {
         return Objects.hash(evento, preco, assento, ativo);
     }
 
+    /**
+     * Cancela um evento
+     * <p>
+     *     Não é executada caso o evento tiver uma data anterior a atual, retornando falso
+     * </p>
+     * @return se a ação teve sucesso
+     */
     public boolean cancelar() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
@@ -71,6 +86,9 @@ public class Ingresso {
         return false;
     }
 
+    /**
+     * Reativa o ingresso caso ele não seja de um evento anterior a data atual
+     */
     public void reativar() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2024, Calendar.SEPTEMBER, 9);

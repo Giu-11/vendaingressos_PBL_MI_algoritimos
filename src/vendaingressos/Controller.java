@@ -15,16 +15,40 @@ package vendaingressos;
 import java.util.*;
 import java.util.stream.IntStream;
 
+/**
+ * Responsável por Controlar as outras classes
+ */
 public class Controller {
     private List<Usuario> usuarios = new ArrayList<>();
     private List<Evento> eventos = new ArrayList<>();
 
+    /**
+     *
+     * @param login Login do usuário
+     * @param senha Senha do usuário
+     * @param nome nome do usuário
+     * @param cpf cpf do usuário
+     * @param email email do usuário
+     * @param admin se o usuário é um administrator
+     * @return Usuário cadastrado
+     */
     public Usuario cadastrarUsuario(String login, String senha, String nome, String cpf, String email, boolean admin) {
         Usuario novoUsuario = new Usuario(login,senha, nome, cpf,email,admin);
         usuarios.add(novoUsuario);
         return novoUsuario;
     }
 
+    /**
+     *
+     * @param admin usuário administrador
+     * @param nome nome do evento
+     * @param descricao descrição do evento
+     * @param data data do evento
+     * @return Evento cadastrado
+     *
+     * @throws SecurityException Lança um erro de segurança caso um usuário não
+     * administrador tentar criar um evento
+     */
     public Evento cadastrarEvento(Usuario admin, String nome, String descricao, Date data) {
         if(admin.isAdmin()) {
             Evento novoEvento = new Evento(nome, descricao, data);
@@ -36,6 +60,11 @@ public class Controller {
         }
     }
 
+    /**
+     *
+     * @param nomeEvento nome de um evento
+     * @param assento assento ser adicionado a um evento
+     */
     public void adicionarAssentoEvento(String nomeEvento, String assento) {
         //Busca dentro da lista de eventos pelo primeiro evento com o nome fornecido
         OptionalInt indice = IntStream.range(0, eventos.size())
@@ -47,6 +76,13 @@ public class Controller {
         }
     }
 
+    /**
+     *
+     * @param usuario usuário que comprará o ingresso
+     * @param nomeEvento nome do evento para qual o ingresso será comprado
+     * @param assento assento do ingresso será comprado
+     * @return Ingresso comprado
+     */
     public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String assento) {
         //Busca dentro da lista de eventos pelo primeiro evento com o nome fornecido
         OptionalInt indice = IntStream.range(0, eventos.size())
@@ -65,6 +101,15 @@ public class Controller {
         return null;
     }
 
+
+    /**
+     * Retorna 'true' se o usuário possui o ingresso
+     * e assim esse pode ser cancelado
+     *
+     * @param usuario usuário que cancelará um ingresso
+     * @param ingresso ingresso a ser cancelado
+     * @return se a ação pode ser feita
+     */
     public boolean cancelarCompra(Usuario usuario, Ingresso ingresso) {
         //cancela um ingresso coso o usuário informado possua ele
         if(usuario.getIngressos().contains(ingresso)){
@@ -77,6 +122,11 @@ public class Controller {
         return false;
     }
 
+
+    /**
+     *
+     * @return Lista de eventos que acontecerão no futuro
+     */
     public List<Evento> listarEventosDisponiveis() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
@@ -89,6 +139,12 @@ public class Controller {
                 .toList();
     }
 
+
+    /**
+     *
+     * @param usuario usuário que terá seus ingressos listados
+     * @return Ingressos do usuário fornecido
+     */
     public List<Ingresso> listarIngressosComprados(Usuario usuario) {
         return usuario.getIngressos();
     }
