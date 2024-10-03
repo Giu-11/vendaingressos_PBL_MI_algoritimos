@@ -20,6 +20,9 @@ public class Evento {
     private String nome;
     private String descricao;
     private Date data;
+    private Double precoIngresso;
+    private int totalAssentos;
+    private int assentosComprados;
     private List<String> assentosDisponiveis;
     private List<String> assentosOcupados;
 
@@ -37,6 +40,16 @@ public class Evento {
         this.data = data;
         this.assentosDisponiveis = new ArrayList<>();
         this.assentosOcupados = new ArrayList<>();
+        this.precoIngresso = 0.0;
+    }
+
+    public Evento(String nome, String descricao, Date data, double precoIngresso) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.data = data;
+        this.assentosDisponiveis = new ArrayList<>();
+        this.assentosOcupados = new ArrayList<>();
+        this.precoIngresso = precoIngresso;
     }
 
     //Getters
@@ -54,6 +67,14 @@ public class Evento {
 
     public List<String> getAssentosDisponiveis() {
         return assentosDisponiveis;
+    }
+
+    public Double getPrecoIngresso() {
+        return precoIngresso;
+    }
+
+    public int getTotalAssentos() {
+        return totalAssentos;
     }
 
     /**
@@ -96,6 +117,7 @@ public class Evento {
         if (assentosDisponiveis.contains(assento)){
             assentosDisponiveis.remove(assento);
             assentosOcupados.add(assento);
+
         }
     }
 

@@ -92,7 +92,7 @@ public class Controller {
         if(indice.isPresent()){
             Evento evento = eventos.get(indice.getAsInt());
             if (evento.getAssentosDisponiveis().contains(assento)) {
-                Ingresso novoIngresso = new Ingresso(evento, 0.0, assento);
+                Ingresso novoIngresso = new Ingresso(evento, evento.getPrecoIngresso(), assento);
                 usuario.adicionarIngresso(novoIngresso);
                 evento.compraAssento(assento);
                 return novoIngresso;

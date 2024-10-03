@@ -45,7 +45,10 @@ public class UsuarioTest {
     public void testAtualizarSenha() {
         Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        usuario.setSenha("novaSenha123");
+        //teste com a mudança de senha, fornecendo a anterior e uma errada
+        assertTrue(usuario.mudarSenha("senha123", "novaSenha123"));
+        assertFalse(usuario.mudarSenha("senhaErrada123", "novaSenha123"));
+
         assertTrue(usuario.login("johndoe", "novaSenha123"));
         assertFalse(usuario.login("johndoe", "senha123"));
     }
@@ -54,12 +57,12 @@ public class UsuarioTest {
     public void testDadosUsuario() {
         Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        usuario.setNome("Jonathan Doe");
-        usuario.setCpf("10987654321");
-        usuario.setEmail("jon.doe@example.com");
+        usuario.mudarNome("Jonathan Doe");
+        usuario.mudarEmail("jon.doe@example.com");
+
 
         assertEquals("Jonathan Doe", usuario.getNome());
-        assertEquals("10987654321", usuario.getCpf());
+        //assertEquals("10987654321", usuario.getCpf()); // tirada a função de modificar o CPF
         assertEquals("jon.doe@example.com", usuario.getEmail());
     }
 

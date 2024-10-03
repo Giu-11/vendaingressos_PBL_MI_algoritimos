@@ -52,10 +52,6 @@ public class Usuario {
         return login;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -73,10 +69,6 @@ public class Usuario {
     }
 
     //Setters
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -95,6 +87,22 @@ public class Usuario {
 
     public boolean isAdmin() {
         return admin;
+    }
+
+    public void mudarNome(String novoNome){
+        this.nome = novoNome;
+    }
+
+    public void mudarEmail(String novoEmail){
+        this.email= novoEmail;
+    }
+
+    public boolean mudarSenha(String senha, String novaSenha){
+        if (login(this.login, senha)){
+            this.senha = novaSenha;
+            return true;
+        }
+        return false;
     }
 
     /**
