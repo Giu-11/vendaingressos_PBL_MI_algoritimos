@@ -24,7 +24,7 @@ public class Usuario {
     private String nome;
     private String cpf;
     private String email;
-    private List<Ingresso> ingressos;
+    private List<String> ingressos;
     private final boolean admin;
 
     //Construtor
@@ -64,7 +64,7 @@ public class Usuario {
         return email;
     }
 
-    public List<Ingresso> getIngressos() {
+    public List<String> getIngressos() {
         return ingressos;
     }
 
@@ -133,7 +133,7 @@ public class Usuario {
      * @param ingresso Ingresso comprado pelo usuário
      */
     public void adicionarIngresso(Ingresso ingresso) {
-        ingressos.add(ingresso);
+        ingressos.add(ingresso.getId());
     }
 
     /**

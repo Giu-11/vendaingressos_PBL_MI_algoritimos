@@ -1,6 +1,7 @@
 package vendaingressos;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Recibo {
     private final Date dataCompra;
@@ -8,6 +9,7 @@ public class Recibo {
     private final String idUsuario;
     private final double valorPago;
     private final String formaPagamento;
+    private final String id;
 
     public Recibo(Date dataCompra, String idIngresso, String idUsuario, double valorPago, String formaPagamento) {
         this.dataCompra = dataCompra;
@@ -15,6 +17,7 @@ public class Recibo {
         this.idUsuario = idUsuario;
         this.valorPago = valorPago;
         this.formaPagamento = formaPagamento;
+        this.id = UUID.randomUUID().toString();
     }
 
     public Date getDataCompra() {
@@ -35,5 +38,21 @@ public class Recibo {
 
     public String getFormaPagamento() {
         return formaPagamento;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Recibo{" +
+                "dataCompra=" + dataCompra +
+                ", idIngresso='" + idIngresso + '\'' +
+                ", idUsuario='" + idUsuario + '\'' +
+                ", valorPago=" + valorPago +
+                ", formaPagamento='" + formaPagamento + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

@@ -25,6 +25,7 @@ public class Evento {
     private int assentosComprados;
     private List<String> assentosDisponiveis;
     private List<String> assentosOcupados;
+    private String id;
 
     //Construtor
 
@@ -40,6 +41,7 @@ public class Evento {
         this.data = data;
         this.assentosDisponiveis = new ArrayList<>();
         this.assentosOcupados = new ArrayList<>();
+        this.id = UUID.fromString(this.nome).toString();
         this.precoIngresso = 0.0;
     }
 
@@ -71,6 +73,10 @@ public class Evento {
 
     public Double getPrecoIngresso() {
         return precoIngresso;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getTotalAssentos() {

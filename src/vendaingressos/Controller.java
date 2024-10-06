@@ -146,6 +146,8 @@ public class Controller {
      * @return Ingressos do usuário fornecido
      */
     public List<Ingresso> listarIngressosComprados(Usuario usuario) {
-        return usuario.getIngressos();
+        List<String> ingressosId = usuario.getIngressos();
+        //TODO Adicionar aqui a busca nos arquivos
+        return null;
     }
 }

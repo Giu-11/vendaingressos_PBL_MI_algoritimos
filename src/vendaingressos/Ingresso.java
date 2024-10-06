@@ -13,15 +13,17 @@ package vendaingressos;
 
 import java.util.Calendar;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Ingressos para um evento
  */
 public class Ingresso {
-    private Evento evento;
+    private String evento;
     private double preco;
     private String assento;
     private boolean ativo;
+    private final String id;
 
     /**
      *
@@ -30,15 +32,20 @@ public class Ingresso {
      * @param assento Assento do ingresso
      */
     public Ingresso( Evento evento, double preco, String assento) {
-        this.evento = evento;
+        this.evento = evento.getId();
         this.preco = preco;
         this.assento = assento;
-        this.ativo = true;
+        this.ativo = true;  //TODO colocar método p criar ele como n ativo
+        this.id = UUID.fromString(evento.getNome()).toString();
     }
 
     //Getters
-    public Evento getEvento() {
+    public String getEvento() {
         return evento;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public boolean isAtivo() {
@@ -80,12 +87,20 @@ public class Ingresso {
         calendar.set(2024, Calendar.SEPTEMBER, 9);
 
         if (calendar.getTime().before(this.evento.getData())) {
+
+            /*FIXME Qual melhor forma de concertar isso?
+                receber como parâmetro?
+                colocar data no ingresso?
+                ingresso procurar??
+                pergunta disso na sessão*/
+
             this.ativo = false;
             return true;
         }
         return false;
     }
 
+    //TODO tirar esse método?
     /**
      * Reativa o ingresso caso ele não seja de um evento anterior a data atual
      */
@@ -97,4 +112,5 @@ public class Ingresso {
             this.ativo = true;
         }
     }
+
 }
