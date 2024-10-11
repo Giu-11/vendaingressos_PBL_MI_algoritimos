@@ -11,6 +11,10 @@
  ********************************************************************************************/
 package vendaingressos;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -19,12 +23,10 @@ import java.util.*;
 public class Evento {
     private String nome;
     private String descricao;
-    private Date data;
+    private LocalDate data;
     private Double precoIngresso;
     private int totalAssentos;
     private int assentosComprados;
-    private List<String> assentosDisponiveis;
-    private List<String> assentosOcupados;
     private String id;
 
     //Construtor
@@ -35,24 +37,19 @@ public class Evento {
      * @param descricao descrição do evento
      * @param data data do evento
      */
-    public Evento(String nome, String descricao, Date data) {
+    public Evento(String nome, String descricao, LocalDate data, int totalAssentos) {
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String dataString = dataFormatada.format(data);
+
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
-        this.assentosDisponiveis = new ArrayList<>();
-        this.assentosOcupados = new ArrayList<>();
-        this.id = UUID.fromString(this.nome).toString();
+        this.totalAssentos = totalAssentos;
+        this.assentosComprados = 0;
+        this.id = dataString + "." + UUID.randomUUID().toString();
         this.precoIngresso = 0.0;
     }
 
-    public Evento(String nome, String descricao, Date data, double precoIngresso) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.data = data;
-        this.assentosDisponiveis = new ArrayList<>();
-        this.assentosOcupados = new ArrayList<>();
-        this.precoIngresso = precoIngresso;
-    }
 
     //Getters
     public String getNome() {
@@ -63,12 +60,8 @@ public class Evento {
         return descricao;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
-    }
-
-    public List<String> getAssentosDisponiveis() {
-        return assentosDisponiveis;
     }
 
     public Double getPrecoIngresso() {
@@ -83,6 +76,10 @@ public class Evento {
         return totalAssentos;
     }
 
+    public int getAssentosComprados() {
+        return assentosComprados;
+    }
+
     /**
      *
      * @return se o evento ainda irá acontecer
@@ -90,40 +87,15 @@ public class Evento {
     public boolean isAtivo() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 9);
-
-        return calendar.getTime().before(this.data);
+        return data.isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9));
     }
 
     /**
      *
-     * @param assento assento a ser adicionado no evento
      */
-    public void adicionarAssento(String assento) {
-        //adiciona um assento caso ele não exista nem em assentos disponíveis ou ocupados
-        if((!assentosDisponiveis.contains(assento)) && (!assentosOcupados.contains(assento))) {
-            assentosDisponiveis.add(assento);
-        }
-    }
-
-    /**
-     *
-     * @param assento assento a ser removido no evento
-     */
-    public void removerAssento(String assento) {
-        assentosDisponiveis.removeIf(i->(Objects.equals(i, assento)));
-    }
-
-    /**
-     *
-     * @param assento assento que será comprado
-     */
-    public void compraAssento(String assento){
-        if (assentosDisponiveis.contains(assento)){
-            assentosDisponiveis.remove(assento);
-            assentosOcupados.add(assento);
-
+    public void compraIngresso(){
+        if (this.totalAssentos > this.assentosComprados){
+            assentosComprados += 1;
         }
     }
 
@@ -131,10 +103,7 @@ public class Evento {
      *
      * @param assento assento que terá compra cancelada
      */
-    public void cancelaCompra(String assento){
-        if(assentosOcupados.contains(assento)){
-            assentosOcupados.remove(assento);
-            assentosDisponiveis.add(assento);
-        }
+    public void cancelaCompra(){
+        assentosComprados -= 1;
     }
 }

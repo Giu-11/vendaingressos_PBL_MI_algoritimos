@@ -1,4 +1,6 @@
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
@@ -14,11 +16,9 @@ public class EventoTest {
 
     @Test
     public void testCriarEvento() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
 
         assertNotNull(evento);
         assertEquals("Show de Rock", evento.getNome());
@@ -26,51 +26,21 @@ public class EventoTest {
         assertEquals(data, evento.getData());
     }
 
-    @Test
-    public void testAdicionarAssento() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
-
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        evento.adicionarAssento("A1");
-
-        List<String> assentos = evento.getAssentosDisponiveis();
-        assertTrue(assentos.contains("A1"));
-    }
-
-    @Test
-    public void testRemoverAssento() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
-
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        evento.adicionarAssento("A1");
-        evento.removerAssento("A1");
-
-        List<String> assentos = evento.getAssentosDisponiveis();
-        assertFalse(assentos.contains("A1"));
-    }
 
     @Test
     public void testEventoAtivo() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
 
         assertTrue(evento.isAtivo());
     }
 
     @Test
     public void testEventoInativo() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2023, Calendar.JANUARY, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.JANUARY, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
 
         assertFalse(evento.isAtivo());
     }

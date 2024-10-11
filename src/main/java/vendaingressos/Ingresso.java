@@ -11,7 +11,11 @@
  ********************************************************************************************/
 package vendaingressos;
 
+import javax.xml.crypto.Data;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -23,29 +27,28 @@ public class Ingresso {
     private double preco;
     private String assento;
     private boolean ativo;
-    private final String id;
+    private final LocalDate data;
+    private final Recibo recibo;
 
-    /**
+
+    /***
      *
-     * @param evento Evento para qual o ingresso é
-     * @param preco Preço do ingresso
-     * @param assento Assento do ingresso
+     * @param evento
+     * @param preco
+     * @param ativo
+     * @param formaPagamento
      */
-    public Ingresso( Evento evento, double preco, String assento) {
+    public Ingresso(Evento evento, double preco, Boolean ativo, String formaPagamento) {
         this.evento = evento.getId();
         this.preco = preco;
-        this.assento = assento;
-        this.ativo = true;  //TODO colocar método p criar ele como n ativo
-        this.id = UUID.fromString(evento.getNome()).toString();
+        this.ativo = ativo;
+        this.data = evento.getData();
+        this.recibo = new Recibo(preco, formaPagamento);
     }
 
     //Getters
     public String getEvento() {
         return evento;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public boolean isAtivo() {
@@ -83,34 +86,11 @@ public class Ingresso {
     public boolean cancelar() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 9);
 
-        if (calendar.getTime().before(this.evento.getData())) {
-
-            /*FIXME Qual melhor forma de concertar isso?
-                receber como parâmetro?
-                colocar data no ingresso?
-                ingresso procurar??
-                pergunta disso na sessão*/
-
+        if (data.isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9))) {
             this.ativo = false;
             return true;
         }
         return false;
     }
-
-    //TODO tirar esse método?
-    /**
-     * Reativa o ingresso caso ele não seja de um evento anterior a data atual
-     */
-    public void reativar() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 9);
-
-        if (calendar.getTime().before(this.evento.getData())) {
-            this.ativo = true;
-        }
-    }
-
 }

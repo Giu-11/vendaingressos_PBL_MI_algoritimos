@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.List;
@@ -21,11 +23,9 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data);
+        Evento evento = controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000);
 
         assertNotNull(evento);
         assertEquals("Show de Rock", evento.getNome());
@@ -38,12 +38,10 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario usuario = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Exception exception = assertThrows(SecurityException.class, () -> {
-            controller.cadastrarEvento(usuario, "Peça de Teatro", "Grupo ABC", data);
+            controller.cadastrarEvento(usuario, "Peça de Teatro", "Grupo ABC", data, 100);
         });
 
         assertEquals("Somente administradores podem cadastrar eventos.", exception.getMessage());
@@ -54,19 +52,15 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data);
-        controller.adicionarAssentoEvento("Show de Rock", "A1");
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 20);
 
-        Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "A1");
+        Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "PIX");
 
         assertNotNull(ingresso);
-        assertEquals("Show de Rock", ingresso.getEvento().getNome());
-        assertEquals("A1", ingresso.getAssento());
+        assertEquals("Show de Rock", controller.buscaEvento(ingresso.getEvento()).getNome());
         assertTrue(usuario.getIngressos().contains(ingresso));
     }
 
@@ -75,14 +69,11 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data);
-        controller.adicionarAssentoEvento("Show de Rock", "A1");
-        Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "A1");
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000);
+        Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "Crédito");
 
         boolean cancelado = controller.cancelarCompra(usuario, ingresso);
         assertTrue(cancelado);
@@ -95,16 +86,12 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
 
-        Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(2024, Calendar.SEPTEMBER, 10);
-        Date data1 = calendar1.getTime();
+        LocalDate data1 = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Calendar calendar2 = Calendar.getInstance();
-        calendar2.set(2024, Calendar.SEPTEMBER, 15);
-        Date data2 = calendar2.getTime();
+        LocalDate data2 = LocalDate.of(2024, Month.SEPTEMBER, 15);
 
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data1);
-        controller.cadastrarEvento(admin, "Peça de Teatro", "Grupo ABC", data2);
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data1, 100);
+        controller.cadastrarEvento(admin, "Peça de Teatro", "Grupo ABC", data2, 200);
 
         List<Evento> eventos = controller.listarEventosDisponiveis();
 
@@ -116,14 +103,11 @@ public class ControllerTest {
         Controller controller = new Controller();
         Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data);
-        controller.adicionarAssentoEvento("Show de Rock", "A1");
-        controller.comprarIngresso(usuario, "Show de Rock", "A1");
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 100);
+        controller.comprarIngresso(usuario, "Show de Rock", "PIX");
 
         List<Ingresso> ingressos = controller.listarIngressosComprados(usuario);
 

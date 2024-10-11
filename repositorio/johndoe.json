@@ -1,0 +1,32 @@
+{
+  "login": "johndoe",
+  "senha": "senha123",
+  "nome": "John Doe",
+  "cpf": "12345678901",
+  "email": "john.doe@example.com",
+  "ingressos": [
+    {
+      "evento": "20240910.b85b4171-7d19-4c26-86b6-f6306e0f49f5",
+      "preco": 10.0,
+      "ativo": true,
+      "data": "2024-09-10",
+      "recibo": {
+        "dataCompra": "2024-09-09",
+        "valorPago": 10.0,
+        "formaPagamento": "Crédito"
+      }
+    },
+    {
+      "evento": "20240910.b85b4171-7d19-4c26-86b6-f6306e0f49f5",
+      "preco": 10.0,
+      "ativo": true,
+      "data": "2024-09-10",
+      "recibo": {
+        "dataCompra": "2024-09-09",
+        "valorPago": 10.0,
+        "formaPagamento": "Débito"
+      }
+    }
+  ],
+  "admin": false
+}

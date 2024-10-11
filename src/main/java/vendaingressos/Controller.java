@@ -12,6 +12,8 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 
 package vendaingressos;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -49,9 +51,9 @@ public class Controller {
      * @throws SecurityException Lança um erro de segurança caso um usuário não
      * administrador tentar criar um evento
      */
-    public Evento cadastrarEvento(Usuario admin, String nome, String descricao, Date data) {
+    public Evento cadastrarEvento(Usuario admin, String nome, String descricao, LocalDate data, int totalAssentos) {
         if(admin.isAdmin()) {
-            Evento novoEvento = new Evento(nome, descricao, data);
+            Evento novoEvento = new Evento(nome, descricao, data, totalAssentos);
             eventos.add(novoEvento);
             return novoEvento;
         } else{
@@ -60,30 +62,14 @@ public class Controller {
         }
     }
 
-    /**
+    /***
      *
-     * @param nomeEvento nome de um evento
-     * @param assento assento ser adicionado a um evento
+     * @param usuario
+     * @param nomeEvento
+     * @param formaPagamento
+     * @return
      */
-    public void adicionarAssentoEvento(String nomeEvento, String assento) {
-        //Busca dentro da lista de eventos pelo primeiro evento com o nome fornecido
-        OptionalInt indice = IntStream.range(0, eventos.size())
-                .filter(i->(eventos.get(i).getNome().equals(nomeEvento)))
-                .findFirst();
-        //Se o evento existir adiciona o assento a ele
-        if(indice.isPresent()){
-            eventos.get(indice.getAsInt()).adicionarAssento(assento);
-        }
-    }
-
-    /**
-     *
-     * @param usuario usuário que comprará o ingresso
-     * @param nomeEvento nome do evento para qual o ingresso será comprado
-     * @param assento assento do ingresso será comprado
-     * @return Ingresso comprado
-     */
-    public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String assento) {
+    public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String formaPagamento) {
         //Busca dentro da lista de eventos pelo primeiro evento com o nome fornecido
         OptionalInt indice = IntStream.range(0, eventos.size())
                 .filter(i->(eventos.get(i).getNome().equals(nomeEvento)))
@@ -91,10 +77,10 @@ public class Controller {
         //Se o evento existir realiza as ações de compra
         if(indice.isPresent()){
             Evento evento = eventos.get(indice.getAsInt());
-            if (evento.getAssentosDisponiveis().contains(assento)) {
-                Ingresso novoIngresso = new Ingresso(evento, evento.getPrecoIngresso(), assento);
+            if (evento.getTotalAssentos() > evento.getAssentosComprados()) {
+                Ingresso novoIngresso = new Ingresso(evento, evento.getPrecoIngresso(), true, formaPagamento);
                 usuario.adicionarIngresso(novoIngresso);
-                evento.compraAssento(assento);
+                evento.compraIngresso();
                 return novoIngresso;
             }
         }
@@ -113,8 +99,8 @@ public class Controller {
     public boolean cancelarCompra(Usuario usuario, Ingresso ingresso) {
         //cancela um ingresso coso o usuário informado possua ele
         if(usuario.getIngressos().contains(ingresso)){
-            Evento evento = ingresso.getEvento();
-            evento.cancelaCompra(ingresso.getAssento());
+            Evento evento = buscaEvento(ingresso.getEvento());
+            evento.cancelaCompra();
             usuario.cancelarIngresso(ingresso);
             ingresso.cancelar();
             return true;
@@ -135,7 +121,7 @@ public class Controller {
 
         //retorna uma lista de todos os eventos que acontecerão depois da data definida
         return eventos.stream()
-                .filter(i->(i.getData().after(calendar.getTime())))
+                .filter(i->(i.getData().isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9))))
                 .toList();
     }
 
@@ -146,8 +132,19 @@ public class Controller {
      * @return Ingressos do usuário fornecido
      */
     public List<Ingresso> listarIngressosComprados(Usuario usuario) {
-        List<String> ingressosId = usuario.getIngressos();
-        //TODO Adicionar aqui a busca nos arquivos
-        return null;
+        return usuario.getIngressos();
+    }
+
+    /***
+     *
+     * @param idEvento id do evento que deve ser procurado
+     * @return retorna o evento caso ele seja encontrado, ou null caso não
+     */
+    public Evento buscaEvento(String idEvento){
+        //TODO busca nos arquivos
+        return eventos.stream()
+                .filter(i->(Objects.equals(i.getId(), idEvento)))
+                .findFirst()
+                .orElse(null);
     }
 }

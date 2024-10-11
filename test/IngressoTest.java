@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Calendar;
 import java.util.Date;
 import vendaingressos.Evento;
@@ -15,26 +18,23 @@ public class IngressoTest {
     public void testCriarIngresso() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 9);
         
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        Ingresso ingresso = new Ingresso(evento, 100.0, "A1");
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
 
         assertNotNull(ingresso);
-        assertEquals(evento, ingresso.getEvento());
+        assertEquals(evento.getId(), ingresso.getEvento());
         assertEquals(100.0, ingresso.getPreco(), 0.0001);
-        assertEquals("A1", ingresso.getAssento());
         assertTrue(ingresso.isAtivo());
     }
 
     @Test
     public void testCancelarIngresso() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        Ingresso ingresso = new Ingresso(evento, 100.0, "A1");
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
 
         assertTrue(ingresso.cancelar());
         assertFalse(ingresso.isAtivo());
@@ -42,12 +42,10 @@ public class IngressoTest {
 
     @Test
     public void testCancelarIngressoEventoPassado() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2023, Calendar.JANUARY, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.JANUARY, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        Ingresso ingresso = new Ingresso(evento, 100.0, "A1");
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
 
         assertFalse(ingresso.cancelar());
         assertTrue(ingresso.isAtivo());
@@ -55,29 +53,22 @@ public class IngressoTest {
 
     @Test
     public void testReativarIngresso() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        Ingresso ingresso = new Ingresso(evento, 100.0, "A1");
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
 
         ingresso.cancelar();
         assertFalse(ingresso.isAtivo());
-
-        ingresso.reativar();
-        assertTrue(ingresso.isAtivo());
     }
 
     @Test
     public void testIngressoDuplicado() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 10);
-        Date data = calendar.getTime();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data);
-        Ingresso ingresso1 = new Ingresso(evento, 100.0, "A1");
-        Ingresso ingresso2 = new Ingresso(evento, 100.0, "A1");
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Ingresso ingresso1 = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso2 = new Ingresso(evento, 100.0, true, "PIX");
 
         assertEquals(ingresso1, ingresso2);
         assertEquals(ingresso1.hashCode(), ingresso2.hashCode());

@@ -19,12 +19,12 @@ import java.util.Objects;
  * Usuário do sistema, pode ser administrador
  */
 public class Usuario {
-    private String login;
+    private final String login;
     private String senha;
     private String nome;
     private String cpf;
     private String email;
-    private List<String> ingressos;
+    private List<Ingresso> ingressos;
     private final boolean admin;
 
     //Construtor
@@ -64,7 +64,7 @@ public class Usuario {
         return email;
     }
 
-    public List<String> getIngressos() {
+    public List<Ingresso> getIngressos() {
         return ingressos;
     }
 
@@ -133,7 +133,7 @@ public class Usuario {
      * @param ingresso Ingresso comprado pelo usuário
      */
     public void adicionarIngresso(Ingresso ingresso) {
-        ingressos.add(ingresso.getId());
+        ingressos.add(ingresso);
     }
 
     /**
