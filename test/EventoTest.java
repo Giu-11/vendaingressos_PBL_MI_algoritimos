@@ -44,4 +44,19 @@ public class EventoTest {
 
         assertFalse(evento.isAtivo());
     }
+
+    @Test
+    public void testCompraIngressos(){
+        LocalDate data = LocalDate.of(2024, Month.JANUARY, 10);
+
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 2);
+
+        evento.compraIngresso();
+        evento.compraIngresso();
+        evento.compraIngresso();
+
+        assertEquals(2, evento.getAssentosComprados());
+        evento.cancelaCompra();
+        assertEquals(1, evento.getAssentosComprados());
+    }
 }

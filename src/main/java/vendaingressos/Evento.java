@@ -50,6 +50,15 @@ public class Evento {
         this.precoIngresso = 0.0;
     }
 
+    public Evento(String nome, String descricao, LocalDate data, int totalAssentos, double precoIngresso) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.data = data;
+        this.totalAssentos = totalAssentos;
+        this.assentosComprados = 0;
+        this.precoIngresso = precoIngresso;
+    }
+
 
     //Getters
     public String getNome() {
@@ -90,6 +99,19 @@ public class Evento {
         return data.isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evento evento = (Evento) o;
+        return totalAssentos == evento.totalAssentos && assentosComprados == evento.assentosComprados && Objects.equals(nome, evento.nome) && Objects.equals(descricao, evento.descricao) && Objects.equals(data, evento.data) && Objects.equals(precoIngresso, evento.precoIngresso) && Objects.equals(id, evento.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, descricao, data, precoIngresso, totalAssentos, assentosComprados, id);
+    }
+
     /**
      *
      */
@@ -101,7 +123,6 @@ public class Evento {
 
     /**
      *
-     * @param assento assento que terá compra cancelada
      */
     public void cancelaCompra(){
         assentosComprados -= 1;

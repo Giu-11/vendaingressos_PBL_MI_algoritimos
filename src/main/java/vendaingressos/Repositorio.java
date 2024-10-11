@@ -13,12 +13,16 @@ import java.nio.file.Paths;
 
 public class Repositorio {
 
+    /**
+     *
+     * @param usuario
+     */
     public void guardaUsuario(Usuario usuario){
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
                 .setPrettyPrinting()
                 .create();
-        try (FileWriter arquivo = new FileWriter("repositorio/"+usuario.getLogin()+".json")) {
+        try (FileWriter arquivo = new FileWriter("repositorio/Usuarios/"+usuario.getLogin()+".json")) {
             gson.toJson(usuario, arquivo);
         }
         catch (IOException e) {
@@ -26,8 +30,12 @@ public class Repositorio {
         }
     }
 
+    /**
+     *
+     * @param login
+     * @return
+     */
     public Usuario buscaUsuario(String login){
-        Usuario usuario = null;
         /*
         Path caminho = Paths.get("repositorio/");
 
@@ -38,13 +46,14 @@ public class Repositorio {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        Usuario usuario = null;
 
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
                 .setPrettyPrinting()
                 .create();
 
-        File arquivo = new File("repositorio/"+login+".json");
+        File arquivo = new File("repositorio/Usuarios/"+login+".json");
 
         if(arquivo.exists()){
             try (BufferedReader reader = new BufferedReader(new FileReader(arquivo))) {
@@ -56,5 +65,45 @@ public class Repositorio {
         return usuario;
     }
 
+    /**
+     *
+     * @param evento
+     */
+    public void guardaEvento(Evento evento){
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
+                .setPrettyPrinting()
+                .create();
+        try (FileWriter arquivo = new FileWriter("repositorio/Eventos/"+evento.getId()+".json")) {
+            gson.toJson(evento, arquivo);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Evento buscaEvento(String id){
+        Evento evento = null;
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
+                .setPrettyPrinting()
+                .create();
+
+        File arquivo = new File("repositorio/Eventos/"+id+".json");
+
+        if(arquivo.exists()){
+            try (BufferedReader reader = new BufferedReader(new FileReader(arquivo))) {
+                evento = gson.fromJson(reader, Evento.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return evento;
+    }
 }
