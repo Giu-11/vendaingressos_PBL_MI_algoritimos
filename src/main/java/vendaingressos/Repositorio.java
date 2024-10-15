@@ -106,4 +106,6 @@ public class Repositorio {
         }
         return evento;
     }
+
+    //TODO procura por eventos futuros (a data ta no id, pega por ela e bota o dia de hj como 9 set)
 }

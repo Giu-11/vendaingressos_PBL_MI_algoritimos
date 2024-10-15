@@ -11,7 +11,6 @@
  ********************************************************************************************/
 package vendaingressos;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +27,7 @@ public class Evento {
     private int totalAssentos;
     private int assentosComprados;
     private String id;
+    private HashMap<String, String> comentarios;
 
     //Construtor
 
@@ -48,6 +48,7 @@ public class Evento {
         this.assentosComprados = 0;
         this.id = dataString + "." + UUID.randomUUID().toString();
         this.precoIngresso = 0.0;
+        this.comentarios = new HashMap<String, String>();
     }
 
     public Evento(String nome, String descricao, LocalDate data, int totalAssentos, double precoIngresso) {
@@ -57,6 +58,7 @@ public class Evento {
         this.totalAssentos = totalAssentos;
         this.assentosComprados = 0;
         this.precoIngresso = precoIngresso;
+        this.comentarios = new HashMap<String, String>();
     }
 
 
@@ -87,6 +89,10 @@ public class Evento {
 
     public int getAssentosComprados() {
         return assentosComprados;
+    }
+
+    public HashMap<String, String> getComentarios() {
+        return comentarios;
     }
 
     /**
@@ -126,5 +132,18 @@ public class Evento {
      */
     public void cancelaCompra(){
         assentosComprados -= 1;
+    }
+
+
+    public void adicionaComentario(Usuario usuario, String comentario){
+        if(this.data.isBefore(LocalDate.of(2024, Month.SEPTEMBER, 9))){
+            boolean temIngresso = usuario.getIngressos().stream()
+                    .anyMatch(ingresso -> Objects.equals(ingresso.getEvento(), this.id));
+            if (temIngresso) {
+                if(!this.comentarios.containsKey(usuario.getNome())) {
+                    this.comentarios.put(usuario.getNome(), comentario);
+                }
+            }
+        }
     }
 }

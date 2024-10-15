@@ -21,7 +21,7 @@ public class IngressoTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 9);
         
         Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
-        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso = new Ingresso(evento, true, "PIX");
 
         assertNotNull(ingresso);
         assertEquals(evento.getId(), ingresso.getEvento());
@@ -34,7 +34,7 @@ public class IngressoTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
-        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso = new Ingresso(evento, true, "PIX");
 
         assertTrue(ingresso.cancelar());
         assertFalse(ingresso.isAtivo());
@@ -45,7 +45,7 @@ public class IngressoTest {
         LocalDate data = LocalDate.of(2024, Month.JANUARY, 10);
 
         Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
-        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso = new Ingresso(evento, true, "PIX");
 
         assertFalse(ingresso.cancelar());
         assertTrue(ingresso.isAtivo());
@@ -56,7 +56,7 @@ public class IngressoTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
-        Ingresso ingresso = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso = new Ingresso(evento, true, "PIX");
 
         ingresso.cancelar();
         assertFalse(ingresso.isAtivo());
@@ -67,8 +67,8 @@ public class IngressoTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
-        Ingresso ingresso1 = new Ingresso(evento, 100.0, true, "PIX");
-        Ingresso ingresso2 = new Ingresso(evento, 100.0, true, "PIX");
+        Ingresso ingresso1 = new Ingresso(evento,  true, "PIX");
+        Ingresso ingresso2 = new Ingresso(evento,  true, "PIX");
 
         assertEquals(ingresso1, ingresso2);
         assertEquals(ingresso1.hashCode(), ingresso2.hashCode());

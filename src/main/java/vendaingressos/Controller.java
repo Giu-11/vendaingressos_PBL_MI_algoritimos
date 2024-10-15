@@ -78,7 +78,7 @@ public class Controller {
         if(indice.isPresent()){
             Evento evento = eventos.get(indice.getAsInt());
             if (evento.getTotalAssentos() > evento.getAssentosComprados()) {
-                Ingresso novoIngresso = new Ingresso(evento, evento.getPrecoIngresso(), true, formaPagamento);
+                Ingresso novoIngresso = new Ingresso(evento, true, formaPagamento);
                 usuario.adicionarIngresso(novoIngresso);
                 evento.compraIngresso();
                 return novoIngresso;

@@ -38,12 +38,12 @@ public class Ingresso {
      * @param ativo
      * @param formaPagamento
      */
-    public Ingresso(Evento evento, double preco, Boolean ativo, String formaPagamento) {
+    public Ingresso(Evento evento, Boolean ativo, String formaPagamento) {
         this.evento = evento.getId();
-        this.preco = preco;
+        this.preco = evento.getPrecoIngresso();
         this.ativo = ativo;
         this.data = evento.getData();
-        this.recibo = new Recibo(preco, formaPagamento);
+        this.recibo = new Recibo(evento.getPrecoIngresso(), formaPagamento);
     }
 
     //Getters

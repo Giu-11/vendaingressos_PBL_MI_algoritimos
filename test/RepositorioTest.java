@@ -33,8 +33,8 @@ public class RepositorioTest {
         Repositorio repositorio = new Repositorio();
         Usuario usuario = new Usuario("johndoe0", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
         Evento evento = new Evento("Show de Rock", "Banda XYZ", LocalDate.of(2024, Month.SEPTEMBER, 10), 10);
-        Ingresso ingresso1 = new Ingresso(evento, 10.0, true, "Crédito");
-        Ingresso ingresso2 = new Ingresso(evento, 10.0, true, "Débito");
+        Ingresso ingresso1 = new Ingresso(evento,  true, "Crédito");
+        Ingresso ingresso2 = new Ingresso(evento,  true, "Débito");
 
         usuario.adicionarIngresso(ingresso1);
         usuario.adicionarIngresso(ingresso2);
@@ -97,4 +97,6 @@ public class RepositorioTest {
             e.printStackTrace();
         }
     }
+
+    //TODO teste com evento passado (10 de jan)(p a busca de eventos futuros)
 }
