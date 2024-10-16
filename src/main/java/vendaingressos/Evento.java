@@ -46,17 +46,21 @@ public class Evento {
         this.data = data;
         this.totalAssentos = totalAssentos;
         this.assentosComprados = 0;
-        this.id = dataString + "." + UUID.randomUUID().toString();
+        this.id = dataString + "."+ nome + "." + UUID.randomUUID().toString();
         this.precoIngresso = 0.0;
         this.comentarios = new HashMap<String, String>();
     }
 
     public Evento(String nome, String descricao, LocalDate data, int totalAssentos, double precoIngresso) {
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String dataString = dataFormatada.format(data);
+
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
         this.totalAssentos = totalAssentos;
         this.assentosComprados = 0;
+        this.id = dataString + "."+ nome + "." + UUID.randomUUID().toString();
         this.precoIngresso = precoIngresso;
         this.comentarios = new HashMap<String, String>();
     }

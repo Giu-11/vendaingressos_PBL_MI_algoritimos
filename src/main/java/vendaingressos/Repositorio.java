@@ -10,6 +10,11 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Repositorio {
 
@@ -87,7 +92,7 @@ public class Repositorio {
      * @param id
      * @return
      */
-    public Evento buscaEvento(String id){
+    public Evento buscaEventoId(String id){
         Evento evento = null;
 
         Gson gson = new GsonBuilder()
@@ -107,5 +112,62 @@ public class Repositorio {
         return evento;
     }
 
-    //TODO procura por eventos futuros (a data ta no id, pega por ela e bota o dia de hj como 9 set)
+    public List<Evento> buscaEventoNome(String nome){
+        List<Evento> eventos = new ArrayList<>();
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
+                .setPrettyPrinting()
+                .create();
+
+        Path caminho = Paths.get("repositorio/Eventos");
+
+        try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
+            for (Path arquivo : arquivos) {
+                if(arquivo.getFileName().toString().toLowerCase().contains(nome.toLowerCase())){
+                    try (Reader reader = Files.newBufferedReader(arquivo)) {
+                        eventos.add(gson.fromJson(reader, Evento.class));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("Arquivo JSON: " + arquivo.getFileName());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return eventos;
+    }
+
+
+    public List<Evento> listarEventosDisponiveis() {
+        List<Evento> eventos = new ArrayList<>();
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
+                .setPrettyPrinting()
+                .create();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String hoje = dataFormatada.format(LocalDate.of(2024, Month.SEPTEMBER, 9));
+
+        Path caminho = Paths.get("repositorio/Eventos");
+
+        try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
+            for (Path arquivo : arquivos) {
+                if(hoje.compareTo(arquivo.getFileName().toString()) < 0){
+                    try (Reader reader = Files.newBufferedReader(arquivo)) {
+                        eventos.add(gson.fromJson(reader, Evento.class));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("Arquivo JSON: " + arquivo.getFileName());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return eventos;
+    }
 }

@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Test;
+import org.testng.annotations.AfterMethod;
 import vendaingressos.Evento;
 import vendaingressos.Ingresso;
 import vendaingressos.Usuario;
@@ -12,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -59,11 +61,11 @@ public class RepositorioTest {
         Repositorio repositorio = new Repositorio();
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 1000);
+        Evento evento = new Evento("Show de Rock.2", "Banda ABC", data, 1000);
 
         String id = evento.getId();
         repositorio.guardaEvento(evento);
-        Evento evento1 = repositorio.buscaEvento(id);
+        Evento evento1 = repositorio.buscaEventoId(id);
 
         assertEquals(evento, evento1);
     }
@@ -71,14 +73,38 @@ public class RepositorioTest {
     @Test
     public void testAcessarEventoNaoExistente(){
         Repositorio repositorio = new Repositorio();
-        Evento evento = repositorio.buscaEvento("idTesteEvento");
+        Evento evento = repositorio.buscaEventoId("idTesteEvento");
 
         assertNull(evento);
     }
 
-    @After
+    @Test
+    public void testListarEventosFuturos(){
+        Repositorio repositorio = new Repositorio();
+        LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
+        Evento evento = new Evento("Festa", "festa", data, 100, 10.0);
+
+        LocalDate data1 = LocalDate.of(2024, Month.SEPTEMBER, 11);
+        Evento evento1 = new Evento("Festa2", "festa2", data1, 100, 10.0);
+
+        LocalDate data2 = LocalDate.of(2023, Month.JANUARY, 8);
+        Evento evento2 = new Evento("Festa3", "festa3", data2, 100, 10.0);
+
+        repositorio.guardaEvento(evento);
+
+        repositorio.guardaEvento(evento1);
+
+        repositorio.guardaEvento(evento2);
+
+        List<Evento> eventos = repositorio.listarEventosDisponiveis();
+
+        assertEquals(2, eventos.size());
+    }
+
+    @AfterMethod
     public void limpaArquivos(){
         Path caminho = Paths.get("repositorio/Usuarios/");
+
 
         try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
             for (Path filePath : arquivos) {
@@ -97,6 +123,4 @@ public class RepositorioTest {
             e.printStackTrace();
         }
     }
-
-    //TODO teste com evento passado (10 de jan)(p a busca de eventos futuros)
 }
