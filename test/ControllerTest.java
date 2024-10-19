@@ -1,19 +1,25 @@
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import vendaingressos.Controller;
 import vendaingressos.Evento;
 import vendaingressos.Ingresso;
 import vendaingressos.Usuario;
+
+import static org.junit.Assert.*;
 
 
 public class ControllerTest {
@@ -112,5 +118,52 @@ public class ControllerTest {
         List<Ingresso> ingressos = controller.listarIngressosComprados(usuario);
 
         assertEquals(1, ingressos.size());
+    }
+
+    @Test
+    public void testEditarUsuario(){
+        Controller controller = new Controller();
+        Usuario usuario = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
+        controller.editaEmailUsuario("novo@email.com", usuario);
+        controller.editaNomeUsuario("novonome", usuario);
+        controller.editaSenhaUsuario("senha1234", "senha123", usuario);
+
+        assertEquals("novo@email.com", usuario.getEmail());
+        assertEquals("novonome", usuario.getNome());
+        assertTrue(usuario.login("johndoe", "senha1234"));
+        assertTrue(controller.login("johndoe", "senha1234"));
+    }
+
+    @Test
+    public void testCriarUsuariosDuplicados(){
+        Controller controller = new Controller();
+        Usuario usuario = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
+        Usuario usuario2 = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
+
+        assertNotNull(usuario);
+        assertNull(usuario2);
+    }
+
+    @After
+    public void limpaArquivos(){
+        Path caminho = Paths.get("repositorio/Usuarios/");
+
+
+        try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
+            for (Path filePath : arquivos) {
+                Files.delete(filePath);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        caminho = Paths.get("repositorio/Eventos/");
+        try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
+            for (Path filePath : arquivos) {
+                Files.delete(filePath);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

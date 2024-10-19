@@ -101,7 +101,7 @@ public class RepositorioTest {
         assertEquals(2, eventos.size());
     }
 
-    @AfterMethod
+    @After
     public void limpaArquivos(){
         Path caminho = Paths.get("repositorio/Usuarios/");
 

@@ -41,16 +41,6 @@ public class Repositorio {
      * @return
      */
     public Usuario buscaUsuario(String login){
-        /*
-        Path caminho = Paths.get("repositorio/");
-
-        try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
-            for (Path filePath : arquivos) {
-                System.out.println("Arquivo JSON: " + filePath.getFileName());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         Usuario usuario = null;
 
         Gson gson = new GsonBuilder()
@@ -169,5 +159,16 @@ public class Repositorio {
         }
 
         return eventos;
+    }
+
+    public boolean usuarioExiste(String login){
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
+                .setPrettyPrinting()
+                .create();
+
+        File arquivo = new File("repositorio/Usuarios/"+login+".json");
+
+        return arquivo.exists();
     }
 }

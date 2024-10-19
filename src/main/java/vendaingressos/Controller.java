@@ -35,9 +35,15 @@ public class Controller {
      * @return Usuário cadastrado
      */
     public Usuario cadastrarUsuario(String login, String senha, String nome, String cpf, String email, boolean admin) {
-        Usuario novoUsuario = new Usuario(login,senha, nome, cpf,email,admin);
-        usuarios.add(novoUsuario);
-        return novoUsuario;
+        Repositorio repositorio = new Repositorio();
+
+        if(!repositorio.usuarioExiste(login)) {
+            Usuario novoUsuario = new Usuario(login, senha, nome, cpf, email, admin);
+            repositorio.guardaUsuario(novoUsuario);
+            usuarios.add(novoUsuario);
+            return novoUsuario;
+        }
+        return null;
     }
 
     /**
@@ -53,13 +59,25 @@ public class Controller {
      */
     public Evento cadastrarEvento(Usuario admin, String nome, String descricao, LocalDate data, int totalAssentos) {
         if(admin.isAdmin()) {
+            Repositorio repositorio = new Repositorio();
             Evento novoEvento = new Evento(nome, descricao, data, totalAssentos);
             eventos.add(novoEvento);
+            repositorio.guardaEvento(novoEvento);
             return novoEvento;
         } else{
             //Retorna um erro se um usuário não administrador tentar criar um evento
             throw new SecurityException("Somente administradores podem cadastrar eventos.");
         }
+    }
+
+
+    public boolean login(String login, String senha){
+        Repositorio repositorio = new Repositorio();
+        Usuario usuario = repositorio.buscaUsuario(login);
+        if(usuario!=null){
+            return usuario.login(login, senha);
+        }
+        return false;
     }
 
     /***
@@ -70,17 +88,18 @@ public class Controller {
      * @return
      */
     public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String formaPagamento) {
-        //Busca dentro da lista de eventos pelo primeiro evento com o nome fornecido
-        OptionalInt indice = IntStream.range(0, eventos.size())
-                .filter(i->(eventos.get(i).getNome().equals(nomeEvento)))
-                .findFirst();
+        Repositorio repositorio = new Repositorio();
+        List<Evento> eventos = repositorio.buscaEventoNome(nomeEvento);
+
         //Se o evento existir realiza as ações de compra
-        if(indice.isPresent()){
-            Evento evento = eventos.get(indice.getAsInt());
-            if (evento.getTotalAssentos() > evento.getAssentosComprados()) {
-                Ingresso novoIngresso = new Ingresso(evento, true, formaPagamento);
+        if(!eventos.isEmpty()){
+
+            if (eventos.get(0).getTotalAssentos() > eventos.get(0).getAssentosComprados()) {
+                Ingresso novoIngresso = new Ingresso(eventos.get(0), true, formaPagamento);
                 usuario.adicionarIngresso(novoIngresso);
-                evento.compraIngresso();
+                eventos.get(0).compraIngresso();
+                repositorio.guardaUsuario(usuario);
+                repositorio.guardaEvento(eventos.get(0));
                 return novoIngresso;
             }
         }
@@ -98,11 +117,15 @@ public class Controller {
      */
     public boolean cancelarCompra(Usuario usuario, Ingresso ingresso) {
         //cancela um ingresso coso o usuário informado possua ele
+        Repositorio repositorio = new Repositorio();
+
         if(usuario.getIngressos().contains(ingresso)){
-            Evento evento = buscaEvento(ingresso.getEvento());
+            Evento evento = repositorio.buscaEventoId(ingresso.getEvento());
             evento.cancelaCompra();
             usuario.cancelarIngresso(ingresso);
             ingresso.cancelar();
+            repositorio.guardaEvento(evento);
+            repositorio.guardaUsuario(usuario);
             return true;
         }
         return false;
@@ -119,10 +142,10 @@ public class Controller {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2024, Calendar.SEPTEMBER, 9);
 
+        Repositorio repositorio = new Repositorio();
+
         //retorna uma lista de todos os eventos que acontecerão depois da data definida
-        return eventos.stream()
-                .filter(i->(i.getData().isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9))))
-                .toList();
+        return repositorio.listarEventosDisponiveis();
     }
 
 
@@ -142,9 +165,28 @@ public class Controller {
      */
     public Evento buscaEvento(String idEvento){
         //TODO busca nos arquivos
-        return eventos.stream()
-                .filter(i->(Objects.equals(i.getId(), idEvento)))
-                .findFirst()
-                .orElse(null);
+        Repositorio repositorio = new Repositorio();
+        return repositorio.buscaEventoId(idEvento);
+    }
+
+    public void editaNomeUsuario(String novoNome, Usuario usuario){
+        Repositorio repositorio = new Repositorio();
+        usuario.mudarNome(novoNome);
+        repositorio.guardaUsuario(usuario);
+
+    }
+
+    public void editaSenhaUsuario(String novaSenha, String senhaAntiga, Usuario usuario){
+        Repositorio repositorio = new Repositorio();
+        usuario.mudarSenha(senhaAntiga, novaSenha);
+        repositorio.guardaUsuario(usuario);
+
+    }
+
+    public void editaEmailUsuario(String novoEmail, Usuario usuario){
+        Repositorio repositorio = new Repositorio();
+        usuario.mudarEmail(novoEmail);
+        repositorio.guardaUsuario(usuario);
+
     }
 }
