@@ -1,7 +1,7 @@
 /*******************************************************************************************
  Autor: Giulia Aguiar Loula
  Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
- Concluído em: 07/09/2024
+ Concluído em: 18/10/2024
  Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
  trecho de código de outro colega ou de outro autor, tais como provindos de livros e
  apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -9,15 +9,12 @@
  do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
 
  ********************************************************************************************/
+
 package vendaingressos;
 
-import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * Ingressos para um evento
@@ -25,7 +22,6 @@ import java.util.UUID;
 public class Ingresso {
     private String evento;
     private double preco;
-    private String assento;
     private boolean ativo;
     private final LocalDate data;
     private final Recibo recibo;
@@ -34,7 +30,6 @@ public class Ingresso {
     /***
      *
      * @param evento
-     * @param preco
      * @param ativo
      * @param formaPagamento
      */
@@ -55,12 +50,16 @@ public class Ingresso {
         return this.ativo;
     }
 
-    public String getAssento() {
-        return this.assento;
-    }
-
     public double getPreco() {
         return preco;
+    }
+
+    public Recibo getRecibo() {
+        return recibo;
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 
     @Override
@@ -68,12 +67,12 @@ public class Ingresso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ingresso ingresso = (Ingresso) o;
-        return Double.compare(preco, ingresso.preco) == 0 && ativo == ingresso.ativo && Objects.equals(evento, ingresso.evento) && Objects.equals(assento, ingresso.assento);
+        return Double.compare(preco, ingresso.preco) == 0 && ativo == ingresso.ativo && Objects.equals(evento, ingresso.evento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(evento, preco, assento, ativo);
+        return Objects.hash(evento, preco, ativo);
     }
 
     /**

@@ -1,7 +1,7 @@
 /*******************************************************************************************
 Autor: Giulia Aguiar Loula
 Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
-Concluído em: 07/09/2024
+Concluído em: 18/10/2024
 Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
 trecho de código de outro colega ou de outro autor, tais como provindos de livros e
 apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -13,9 +13,7 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 package vendaingressos;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.*;
-import java.util.stream.IntStream;
 
 /**
  * Responsável por Controlar as outras classes
@@ -158,7 +156,7 @@ public class Controller {
         return usuario.getIngressos();
     }
 
-    /***
+    /**
      *
      * @param idEvento id do evento que deve ser procurado
      * @return retorna o evento caso ele seja encontrado, ou null caso não
@@ -169,6 +167,11 @@ public class Controller {
         return repositorio.buscaEventoId(idEvento);
     }
 
+    /**
+     *
+     * @param novoNome novo nome do usuário
+     * @param usuario usuário que irá trocar de nome
+     */
     public void editaNomeUsuario(String novoNome, Usuario usuario){
         Repositorio repositorio = new Repositorio();
         usuario.mudarNome(novoNome);

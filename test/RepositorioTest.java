@@ -1,6 +1,5 @@
 import org.junit.After;
 import org.junit.Test;
-import org.testng.annotations.AfterMethod;
 import vendaingressos.Evento;
 import vendaingressos.Ingresso;
 import vendaingressos.Usuario;

@@ -1,7 +1,7 @@
 /*******************************************************************************************
  Autor: Giulia Aguiar Loula
  Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
- Concluído em: 07/09/2024
+ Concluído em: 18/10/2024
  Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
  trecho de código de outro colega ou de outro autor, tais como provindos de livros e
  apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -9,6 +9,7 @@
  do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
 
  ********************************************************************************************/
+
 package vendaingressos;
 
 import java.time.LocalDate;
@@ -20,13 +21,13 @@ import java.util.*;
  * Evento cadastrado no sistema
  */
 public class Evento {
-    private String nome;
-    private String descricao;
-    private LocalDate data;
-    private Double precoIngresso;
-    private int totalAssentos;
+    private final String nome;
+    private final String descricao;
+    private final LocalDate data;
+    private final Double precoIngresso;
+    private final int totalAssentos;
     private int assentosComprados;
-    private String id;
+    private final String id;
     private HashMap<String, String> comentarios;
 
     //Construtor
@@ -46,7 +47,7 @@ public class Evento {
         this.data = data;
         this.totalAssentos = totalAssentos;
         this.assentosComprados = 0;
-        this.id = dataString + "."+ nome + "." + UUID.randomUUID().toString();
+        this.id = dataString + "."+ nome + "." + UUID.randomUUID();
         this.precoIngresso = 0.0;
         this.comentarios = new HashMap<String, String>();
     }
@@ -62,7 +63,7 @@ public class Evento {
         this.assentosComprados = 0;
         this.id = dataString + "."+ nome + "." + UUID.randomUUID().toString();
         this.precoIngresso = precoIngresso;
-        this.comentarios = new HashMap<String, String>();
+        this.comentarios = new HashMap<>();
     }
 
 

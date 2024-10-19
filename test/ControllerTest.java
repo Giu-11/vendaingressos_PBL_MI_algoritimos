@@ -5,15 +5,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Date;
-import java.util.Calendar;
 import java.util.List;
 
 import org.junit.After;
 import org.junit.Test;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import vendaingressos.Controller;
 import vendaingressos.Evento;
 import vendaingressos.Ingresso;

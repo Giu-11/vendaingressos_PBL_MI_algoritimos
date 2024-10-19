@@ -1,15 +1,11 @@
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+
 import vendaingressos.Recibo;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Calendar;
-import java.util.Date;
 
 public class ReciboTest {
 

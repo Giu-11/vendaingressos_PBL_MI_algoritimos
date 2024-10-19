@@ -8,7 +8,6 @@ import static org.junit.Assert.assertNotNull;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Calendar;
-import java.util.Date;
 import vendaingressos.Evento;
 import vendaingressos.Ingresso;
 
