@@ -18,7 +18,9 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-
+/**
+ * Recibo de uma compra de um ingresso
+ */
 public class Recibo {
     private final LocalDate dataCompra;
     private final double valorPago;

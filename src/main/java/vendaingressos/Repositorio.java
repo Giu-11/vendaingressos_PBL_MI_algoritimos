@@ -29,11 +29,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Responsável por guardar e ler informações de arquivos
+ */
 public class Repositorio {
 
     /**
      *
-     * @param usuario
+     * @param usuario usuário que será guardado como arquivo
      */
     public void guardaUsuario(Usuario usuario){
         Gson gson = new GsonBuilder()
@@ -50,8 +53,8 @@ public class Repositorio {
 
     /**
      *
-     * @param login
-     * @return
+     * @param login login do usuário que deve ser buscado nos arquivos
+     * @return usuário encontrado, ou null caso não exista
      */
     public Usuario buscaUsuario(String login){
         Usuario usuario = null;
@@ -74,8 +77,7 @@ public class Repositorio {
     }
 
     /**
-     *
-     * @param evento
+     * @param evento evento que será guardado como arquivo
      */
     public void guardaEvento(Evento evento){
         Gson gson = new GsonBuilder()
@@ -91,9 +93,8 @@ public class Repositorio {
     }
 
     /**
-     *
-     * @param id
-     * @return
+     * @param id id do evento que deve ser buscado nos arquivos
+     * @return evento encontrado, ou null coso ele não exista
      */
     public Evento buscaEventoId(String id){
         Evento evento = null;
@@ -115,6 +116,10 @@ public class Repositorio {
         return evento;
     }
 
+    /**
+     * @param nome nome do evento que deve ser buscado nos arquivos
+     * @return eventos encontrados
+     */
     public List<Evento> buscaEventoNome(String nome){
         List<Evento> eventos = new ArrayList<>();
 
@@ -143,6 +148,9 @@ public class Repositorio {
     }
 
 
+    /**
+     * @return eventos encontrados que ocorrem depois da data atual
+     */
     public List<Evento> listarEventosDisponiveis() {
         List<Evento> eventos = new ArrayList<>();
 
@@ -174,6 +182,10 @@ public class Repositorio {
         return eventos;
     }
 
+    /**
+     * @param login login do usuário
+     * @return se o login fornecido já foi usado por outro usuário
+     */
     public boolean usuarioExiste(String login){
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())

@@ -27,7 +27,7 @@ public class Ingresso {
     private final Recibo recibo;
 
 
-    /***
+    /**
      *
      * @param evento
      * @param ativo

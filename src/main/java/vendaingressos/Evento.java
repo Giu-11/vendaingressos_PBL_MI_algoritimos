@@ -31,13 +31,6 @@ public class Evento {
     private HashMap<String, String> comentarios;
 
     //Construtor
-
-    /**
-     *
-     * @param nome nome do evento
-     * @param descricao descrição do evento
-     * @param data data do evento
-     */
     public Evento(String nome, String descricao, LocalDate data, int totalAssentos) {
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
         String dataString = dataFormatada.format(data);
@@ -124,7 +117,7 @@ public class Evento {
     }
 
     /**
-     *
+     * Adiciona 1 ao contador de ingressos comprados caso ainda não tenha chegado ao limite
      */
     public void compraIngresso(){
         if (this.totalAssentos > this.assentosComprados){
@@ -133,13 +126,18 @@ public class Evento {
     }
 
     /**
-     *
+     * Tira 1 ao contador de ingressos comprados caso ainda não tenha chegado ao limite
      */
     public void cancelaCompra(){
         assentosComprados -= 1;
     }
 
 
+    /**
+     *
+     * @param usuario usuário que está fazendo o comentário
+     * @param comentario comentário feito no evento
+     */
     public void adicionaComentario(Usuario usuario, String comentario){
         if(this.data.isBefore(LocalDate.of(2024, Month.SEPTEMBER, 9))){
             boolean temIngresso = usuario.getIngressos().stream()

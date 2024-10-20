@@ -69,19 +69,34 @@ public class Usuario {
         return ingressos;
     }
 
-    //Setters
+    /**
+     * @return se o usuário é um administrador
+     */
     public boolean isAdmin() {
         return admin;
     }
 
+    /**
+     * @param novoNome novo nome do usuário
+     */
     public void mudarNome(String novoNome){
         this.nome = novoNome;
     }
 
+    /**
+     *
+     * @param novoEmail novo e-mail do usuário
+     */
     public void mudarEmail(String novoEmail){
         this.email= novoEmail;
     }
 
+    /**
+     * troca a senha caso a senha antiga esteja correta
+     * @param senha senha antiga do usuário
+     * @param novaSenha senha nova do usuário
+     * @return retorna se foi possível trocar a senha
+     */
     public boolean mudarSenha(String senha, String novaSenha){
         if (login(this.login, senha)){
             this.senha = novaSenha;

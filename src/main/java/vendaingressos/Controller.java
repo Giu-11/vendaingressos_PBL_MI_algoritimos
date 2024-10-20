@@ -69,6 +69,12 @@ public class Controller {
     }
 
 
+    /**
+     *
+     * @param login login do usuário
+     * @param senha senha do usuário
+     * @return retorna um valor boolean de acordo se a senha está conforme o login
+     */
     public boolean login(String login, String senha){
         Repositorio repositorio = new Repositorio();
         Usuario usuario = repositorio.buscaUsuario(login);
@@ -80,10 +86,10 @@ public class Controller {
 
     /***
      *
-     * @param usuario
-     * @param nomeEvento
-     * @param formaPagamento
-     * @return
+     * @param usuario usuário que comprará o ingresso
+     * @param nomeEvento nome do evento para qual o ingresso está sendo comprado
+     * @param formaPagamento a forma que será pago o ingresso
+     * @return retorna o ingresso comprado
      */
     public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String formaPagamento) {
         Repositorio repositorio = new Repositorio();
@@ -179,6 +185,12 @@ public class Controller {
 
     }
 
+    /**
+     *
+     * @param novaSenha nova senha do usuário
+     * @param senhaAntiga a antiga senha
+     * @param usuario usuário que está trocando sua senha
+     */
     public void editaSenhaUsuario(String novaSenha, String senhaAntiga, Usuario usuario){
         Repositorio repositorio = new Repositorio();
         usuario.mudarSenha(senhaAntiga, novaSenha);
@@ -186,6 +198,11 @@ public class Controller {
 
     }
 
+    /**
+     *
+     * @param novoEmail novo e-mail do usuário
+     * @param usuario usuário que está trocando seu e-mail
+     */
     public void editaEmailUsuario(String novoEmail, Usuario usuario){
         Repositorio repositorio = new Repositorio();
         usuario.mudarEmail(novoEmail);
