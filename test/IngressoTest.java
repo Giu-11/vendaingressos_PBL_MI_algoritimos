@@ -19,7 +19,7 @@ public class IngressoTest {
         calendar.set(2024, Calendar.SEPTEMBER, 10);
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 9);
         
-        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100);
+        Evento evento = new Evento("Show de Rock", "Banda XYZ", data, 100, 100.0);
         Ingresso ingresso = new Ingresso(evento, true, "PIX");
 
         assertNotNull(ingresso);
