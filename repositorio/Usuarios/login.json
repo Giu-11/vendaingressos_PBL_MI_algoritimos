@@ -1,0 +1,9 @@
+{
+  "login": "login",
+  "senha": "senha123",
+  "nome": "Silva da Silva Silva",
+  "cpf": "123",
+  "email": "meuemail@gmail.com",
+  "ingressos": [],
+  "admin": false
+}

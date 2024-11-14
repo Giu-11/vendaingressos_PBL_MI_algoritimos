@@ -1,0 +1,9 @@
+{
+  "login": "adm",
+  "senha": "senhadoadm",
+  "nome": "administrador",
+  "cpf": "000",
+  "email": "emailadm@email.com",
+  "ingressos": [],
+  "admin": true
+}

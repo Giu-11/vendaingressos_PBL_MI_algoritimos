@@ -75,13 +75,15 @@ public class Controller {
      * @param senha senha do usuário
      * @return retorna um valor boolean de acordo se a senha está conforme o login
      */
-    public boolean login(String login, String senha){
+    public Usuario login(String login, String senha){
         Repositorio repositorio = new Repositorio();
         Usuario usuario = repositorio.buscaUsuario(login);
         if(usuario!=null){
-            return usuario.login(login, senha);
+            if(usuario.login(login, senha)){
+                return usuario;
+            }
         }
-        return false;
+        return null;
     }
 
     /***
@@ -208,5 +210,10 @@ public class Controller {
         usuario.mudarEmail(novoEmail);
         repositorio.guardaUsuario(usuario);
 
+    }
+
+    public boolean usuarioExiste(String login){
+        Repositorio repositorio = new Repositorio();
+        return repositorio.usuarioExiste(login);
     }
 }
