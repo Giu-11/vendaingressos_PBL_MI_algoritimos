@@ -17,6 +17,7 @@ import vendaingressos.Usuario;
 
 import static org.junit.Assert.*;
 
+//NÃO RODE ESSES TESTES, ELES VÃO APAGAR OS ARQUIVOS/ NÃO DAR OS RESULTADOS ESPERADOS
 
 public class ControllerTest {
 
@@ -27,7 +28,7 @@ public class ControllerTest {
 
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
-        Evento evento = controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000);
+        Evento evento = controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000, 0);
 
         assertNotNull(evento);
         assertEquals("Show de Rock", evento.getNome());
@@ -43,7 +44,7 @@ public class ControllerTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Exception exception = assertThrows(SecurityException.class, () -> {
-            controller.cadastrarEvento(usuario, "Peça de Teatro", "Grupo ABC", data, 100);
+            controller.cadastrarEvento(usuario, "Peça de Teatro", "Grupo ABC", data, 100, 0);
         });
 
         assertEquals("Somente administradores podem cadastrar eventos.", exception.getMessage());
@@ -57,7 +58,7 @@ public class ControllerTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 20);
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 20, 0);
 
         Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "PIX");
 
@@ -74,7 +75,7 @@ public class ControllerTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000);
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 1000, 0);
         Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "Crédito");
 
         boolean cancelado = controller.cancelarCompra(usuario, ingresso);
@@ -92,8 +93,8 @@ public class ControllerTest {
 
         LocalDate data2 = LocalDate.of(2024, Month.SEPTEMBER, 15);
 
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data1, 100);
-        controller.cadastrarEvento(admin, "Peça de Teatro", "Grupo ABC", data2, 200);
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data1, 100, 0);
+        controller.cadastrarEvento(admin, "Peça de Teatro", "Grupo ABC", data2, 200, 0);
 
         List<Evento> eventos = controller.listarEventosDisponiveis();
 
@@ -108,7 +109,7 @@ public class ControllerTest {
         LocalDate data = LocalDate.of(2024, Month.SEPTEMBER, 10);
 
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
-        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 100);
+        controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data, 100, 0);
         controller.comprarIngresso(usuario, "Show de Rock", "PIX");
 
         List<Ingresso> ingressos = controller.listarIngressosComprados(usuario);
@@ -127,7 +128,7 @@ public class ControllerTest {
         assertEquals("novo@email.com", usuario.getEmail());
         assertEquals("novonome", usuario.getNome());
         assertTrue(usuario.login("johndoe", "senha1234"));
-        assertTrue(controller.login("johndoe", "senha1234"));
+        assertTrue(usuario == controller.login("johndoe", "senha1234"));
     }
 
     @Test

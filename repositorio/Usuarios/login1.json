@@ -1,0 +1,9 @@
+{
+  "login": "login1",
+  "senha": "1",
+  "nome": "nome",
+  "cpf": "1",
+  "email": "email1@gmail.com",
+  "ingressos": [],
+  "admin": false
+}

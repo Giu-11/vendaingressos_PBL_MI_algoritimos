@@ -16,6 +16,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+//NÃO RODE ESSES TESTES, ELES VÃO APAGAR OS ARQUIVOS/ NÃO DAR OS RESULTADOS ESPERADOS
+
 public class RepositorioTest {
 
     @Test

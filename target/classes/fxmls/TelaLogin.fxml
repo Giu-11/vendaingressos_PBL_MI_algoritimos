@@ -16,10 +16,10 @@
                <children>
                   <StackPane prefHeight="542.0" prefWidth="641.0">
                      <children>
-                        <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#6678ff" height="496.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="641.0" />
+                        <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#3a0ca3" height="496.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="641.0" />
                         <VBox prefHeight="533.0" prefWidth="641.0" spacing="5.0">
                            <children>
-                              <Label text="Bem Vindo" textFill="#090f3c">
+                              <Label text="Bem Vindo" textFill="#f6a6cc">
                                  <font>
                                     <Font name="Calibri Bold" size="69.0" />
                                  </font>
@@ -67,12 +67,12 @@
                                  </children>
                               </VBox>
                               <Separator layoutX="60.0" layoutY="145.0" opacity="0.0" prefHeight="30.0" prefWidth="541.0" />
-                              <Button fx:id="entrar" blendMode="HARD_LIGHT" mnemonicParsing="false" onAction="#entrarAction" prefHeight="28.0" prefWidth="166.0" text="Entrar" textAlignment="CENTER">
+                              <Button fx:id="entrar" mnemonicParsing="false" onAction="#entrarAction" prefHeight="28.0" prefWidth="166.0" style="-fx-background-color: #fda3cd; -fx-background-radius: 10;" text="Entrar" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="criarConta" blendMode="SOFT_LIGHT" layoutX="60.0" layoutY="406.0" mnemonicParsing="false" onAction="#criarContaAction" prefHeight="25.0" prefWidth="143.0" text="Criar nova conta" textAlignment="CENTER" textFill="#090f3c">
+                              <Button fx:id="criarConta" layoutX="60.0" layoutY="406.0" mnemonicParsing="false" onAction="#criarContaAction" prefHeight="21.0" prefWidth="163.0" style="-fx-background-color: transparent; -fx-underline: true;" text="Não tem uma conta? Crie uma" textAlignment="CENTER" textFill="#f6a6cc">
                                  <font>
                                     <Font name="Arial" size="10.0" />
                                  </font>

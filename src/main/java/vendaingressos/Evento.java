@@ -29,6 +29,7 @@ public class Evento {
     private int assentosComprados;
     private final String id;
     private HashMap<String, String> comentarios;
+    private final String dataformatada;
 
     //Construtor
     public Evento(String nome, String descricao, LocalDate data, int totalAssentos) {
@@ -43,6 +44,11 @@ public class Evento {
         this.id = dataString + "."+ nome + "." + UUID.randomUUID();
         this.precoIngresso = 0.0;
         this.comentarios = new HashMap<String, String>();
+
+        dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dataString = dataFormatada.format(data);
+
+        this.dataformatada = dataString;
     }
 
     public Evento(String nome, String descricao, LocalDate data, int totalAssentos, double precoIngresso) {
@@ -57,6 +63,11 @@ public class Evento {
         this.id = dataString + "."+ nome + "." + UUID.randomUUID().toString();
         this.precoIngresso = precoIngresso;
         this.comentarios = new HashMap<>();
+
+        dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dataString = dataFormatada.format(data);
+
+        this.dataformatada = dataString;
     }
 
 
@@ -91,6 +102,10 @@ public class Evento {
 
     public HashMap<String, String> getComentarios() {
         return comentarios;
+    }
+
+    public String getDataformatada() {
+        return dataformatada;
     }
 
     /**

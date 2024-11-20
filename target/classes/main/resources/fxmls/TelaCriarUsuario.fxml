@@ -7,25 +7,25 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarUsuarioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarUsuarioController">
     <children>
-        <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <StackPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Rectangle fill="#e8eaed" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <Rectangle fill="#e8eaed" height="654.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+                <HBox alignment="CENTER" prefHeight="472.0" prefWidth="800.0">
                     <children>
-                        <StackPane prefHeight="542.0" prefWidth="641.0">
+                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
                             <children>
-                                <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#6678ff" height="496.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="641.0" />
-                                <VBox prefHeight="533.0" prefWidth="641.0" spacing="5.0">
+                                <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#3a0ca3" height="496.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="641.0" />
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="533.0" prefWidth="641.0" spacing="5.0">
                                     <children>
-                                        <Label text="Crie Sua Conta" textFill="#090f3c">
+                                        <Label text="Crie Sua Conta" textFill="#f6a6cc">
                                             <font>
                                                 <Font name="Calibri Bold" size="69.0" />
                                             </font>
                                         </Label>
                                         <Separator opacity="0.0" prefHeight="30.0" prefWidth="541.0" />
-                                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                                             <children>
                                                 <HBox prefHeight="24.0" prefWidth="569.0" spacing="10.0">
                                                     <children>
@@ -120,12 +120,12 @@
                                             </children>
                                         </VBox>
                                         <Separator layoutX="60.0" layoutY="145.0" opacity="0.0" prefHeight="30.0" prefWidth="541.0" />
-                                        <Button fx:id="criar" blendMode="HARD_LIGHT" mnemonicParsing="false" onAction="#criarAction" prefHeight="28.0" prefWidth="166.0" text="Criar" textAlignment="CENTER">
+                                        <Button fx:id="criar" mnemonicParsing="false" onAction="#criarAction" prefHeight="28.0" prefWidth="166.0" style="-fx-background-color: #f6a6cc; -fx-background-radius: 10;" text="Criar" textAlignment="CENTER">
                                             <font>
                                                 <Font name="Arial" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="contaExistente" blendMode="SOFT_LIGHT" layoutX="60.0" layoutY="406.0" mnemonicParsing="false" onAction="#contaExistenteAction" prefHeight="25.0" prefWidth="143.0" text="Entrar com conta existente" textAlignment="CENTER" textFill="#090f3c">
+                                        <Button fx:id="contaExistente" layoutX="60.0" layoutY="406.0" mnemonicParsing="false" onAction="#contaExistenteAction" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: transparent; -fx-underline: true;" text="Entrar com conta existente" textAlignment="CENTER" textFill="#f6a6cc">
                                             <font>
                                                 <Font name="Arial" size="10.0" />
                                             </font>
@@ -139,6 +139,9 @@
                                     </StackPane.margin>
                                 </VBox>
                             </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                         </StackPane>
                     </children>
                 </HBox>

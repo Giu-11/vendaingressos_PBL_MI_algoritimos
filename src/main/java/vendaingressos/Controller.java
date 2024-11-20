@@ -13,6 +13,7 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 package vendaingressos;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 /**
@@ -55,10 +56,10 @@ public class Controller {
      * @throws SecurityException Lança um erro de segurança caso um usuário não
      * administrador tentar criar um evento
      */
-    public Evento cadastrarEvento(Usuario admin, String nome, String descricao, LocalDate data, int totalAssentos) {
+    public Evento cadastrarEvento(Usuario admin, String nome, String descricao, LocalDate data, int totalAssentos, double preco) {
         if(admin.isAdmin()) {
             Repositorio repositorio = new Repositorio();
-            Evento novoEvento = new Evento(nome, descricao, data, totalAssentos);
+            Evento novoEvento = new Evento(nome, descricao, data, totalAssentos, preco);
             eventos.add(novoEvento);
             repositorio.guardaEvento(novoEvento);
             return novoEvento;
@@ -212,8 +213,20 @@ public class Controller {
 
     }
 
-    public boolean usuarioExiste(String login){
+    /*public boolean usuarioExiste(String login){
         Repositorio repositorio = new Repositorio();
         return repositorio.usuarioExiste(login);
+    }*/
+
+    public static void main(String[] args){
+        LocalDate data = LocalDate.of(2025, Month.NOVEMBER, 29);
+
+        Controller controller = new Controller();
+        Usuario usuario = controller.login("login", "senha123");
+        //Usuario adm = controller.login("adm", "senhadoadm");
+
+        //Evento evento = controller.cadastrarEvento(adm, "evento de teste", "evento para testar", data, 20, 0);
+
+        controller.comprarIngresso(usuario, "evento de teste", "PIX");
     }
 }
