@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -45,6 +46,8 @@ public class PrincipalController {
                 Pane cardEvento = loader.load();
 
                 this.eventos.getChildren().add(cardEvento);
+                VBox.setVgrow(cardEvento, Priority.ALWAYS);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -19,7 +19,7 @@ public class CardController {
     private String data;
 
     CardController(Ingresso ingresso){
-        this.nome = ingresso.getEvento();
+        this.nome = ingresso.getNomeEvento();
         this.data = ingresso.getDataformatada();
     }
 

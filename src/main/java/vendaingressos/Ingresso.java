@@ -26,6 +26,7 @@ public class Ingresso {
     private final LocalDate data;
     private final Recibo recibo;
     private final String dataformatada;
+    private final String nomeEvento;
 
 
     /**
@@ -41,6 +42,7 @@ public class Ingresso {
         this.data = evento.getData();
         this.recibo = new Recibo(evento.getPrecoIngresso(), formaPagamento);
         this.dataformatada = evento.getDataformatada();
+        this.nomeEvento = evento.getNome();
     }
 
     //Getters
@@ -66,6 +68,10 @@ public class Ingresso {
 
     public String getDataformatada() {
         return dataformatada;
+    }
+
+    public String getNomeEvento() {
+        return nomeEvento;
     }
 
     @Override

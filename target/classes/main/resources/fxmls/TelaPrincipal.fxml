@@ -65,11 +65,14 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" pannable="true" prefHeight="524.0" prefWidth="620.0">
+                        <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" pannable="true" prefHeight="575.0" prefWidth="620.0" vbarPolicy="ALWAYS">
                           <content>
-                            <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="620.0">
+                            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="617.0">
                                  <children>
-                                    <VBox fx:id="eventos" prefHeight="530.0" prefWidth="620.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0" />
+                                    <VBox fx:id="eventos" maxHeight="1.7976931348623157E308" prefHeight="530.0" prefWidth="620.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></VBox>
                                  </children>
                               </AnchorPane>
                           </content>
