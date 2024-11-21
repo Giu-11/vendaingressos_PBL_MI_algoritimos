@@ -12,9 +12,7 @@
 
 package vendaingressos;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Usuário do sistema, pode ser administrador
@@ -134,6 +132,7 @@ public class Usuario {
      */
     public void adicionarIngresso(Ingresso ingresso) {
         ingressos.add(ingresso);
+        this.ingressos.sort(Comparator.comparing(Ingresso::getData));
     }
 
     /**

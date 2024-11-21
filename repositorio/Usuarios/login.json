@@ -173,6 +173,45 @@
       },
       "dataformatada": "29/11/2025",
       "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20251129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2025-11-29",
+      "recibo": {
+        "dataCompra": "2024-09-09",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2025",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20251129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2025-11-29",
+      "recibo": {
+        "dataCompra": "2024-09-09",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2025",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20251129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2025-11-29",
+      "recibo": {
+        "dataCompra": "2024-09-09",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2025",
+      "nomeEvento": "evento de teste"
     }
   ],
   "admin": false
