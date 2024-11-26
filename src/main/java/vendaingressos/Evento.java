@@ -113,8 +113,6 @@ public class Evento {
      * @return se o evento ainda irá acontecer
      */
     public boolean isAtivo() {
-        //Data definida como 9 de setembro para simulação do código
-        //garante que os resultados dos testes sejam os esperados para as datas definidas neles
         return data.isAfter(LocalDate.now());
     }
 

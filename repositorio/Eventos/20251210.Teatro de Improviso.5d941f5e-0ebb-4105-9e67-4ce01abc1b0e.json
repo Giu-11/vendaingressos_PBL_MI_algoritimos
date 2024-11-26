@@ -1,0 +1,11 @@
+{
+  "nome": "Teatro de Improviso",
+  "descricao": "Peças de teatro criadas ao vivo com a participação do público.",
+  "data": "2025-12-10",
+  "precoIngresso": 60.0,
+  "totalAssentos": 150,
+  "assentosComprados": 0,
+  "id": "20251210.Teatro de Improviso.5d941f5e-0ebb-4105-9e67-4ce01abc1b0e",
+  "comentarios": {},
+  "dataformatada": "10/12/2025"
+}

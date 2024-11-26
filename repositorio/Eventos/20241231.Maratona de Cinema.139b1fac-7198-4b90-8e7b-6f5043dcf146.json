@@ -1,0 +1,11 @@
+{
+  "nome": "Maratona de Cinema",
+  "descricao": "Exibição de filmes premiados por 24 horas consecutivas.",
+  "data": "2024-12-31",
+  "precoIngresso": 15.0,
+  "totalAssentos": 150,
+  "assentosComprados": 0,
+  "id": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+  "comentarios": {},
+  "dataformatada": "31/12/2024"
+}

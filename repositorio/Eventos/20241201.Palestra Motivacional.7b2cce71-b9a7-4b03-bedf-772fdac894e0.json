@@ -1,0 +1,11 @@
+{
+  "nome": "Palestra Motivacional",
+  "descricao": "Inspiradora palestra com um renomado autor.",
+  "data": "2024-12-01",
+  "precoIngresso": 15.0,
+  "totalAssentos": 80,
+  "assentosComprados": 0,
+  "id": "20241201.Palestra Motivacional.7b2cce71-b9a7-4b03-bedf-772fdac894e0",
+  "comentarios": {},
+  "dataformatada": "01/12/2024"
+}

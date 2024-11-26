@@ -28,6 +28,8 @@ public class PrincipalController {
     private VBox eventos;
     @FXML
     private VBox notificacoes;
+    @FXML
+    private Button busca;
 
     private Usuario usuarioLogado;
 
@@ -62,7 +64,6 @@ public class PrincipalController {
 
                 this.notificacoes.getChildren().add(cardnotificacao);
                 VBox.setVgrow(cardnotificacao, Priority.ALWAYS);
-                System.out.println(notificacao);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -78,5 +79,21 @@ public class PrincipalController {
 
         this.colocaEventos();
         this.colocanotificacoes();
+    }
+
+    @FXML
+    private void buscaAction(){
+        try{
+            BuscaController controllerTela = new BuscaController(usuarioLogado);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/TelaBusca.fxml"));
+            loader.setController(controllerTela);
+            Parent root = loader.load();
+
+            Stage stage = (Stage) this.busca.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(IOException e){
+            e.printStackTrace();
         }
+    }
 }

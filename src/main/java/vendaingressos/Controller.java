@@ -96,7 +96,7 @@ public class Controller {
      */
     public Ingresso comprarIngresso(Usuario usuario, String nomeEvento, String formaPagamento) {
         Repositorio repositorio = new Repositorio();
-        List<Evento> eventos = repositorio.buscaEventoNome(nomeEvento);
+        List<Evento> eventos = repositorio.buscaEventoNome(nomeEvento, false);
 
         //Se o evento existir realiza as ações de compra
         if(!eventos.isEmpty()){
@@ -176,6 +176,15 @@ public class Controller {
         return repositorio.buscaEventoId(idEvento);
     }
 
+
+    public List<Evento> buscaEventoNome(String nomeEvento, Boolean somentefuturos){
+        List<Evento> eventos;
+        Repositorio repositorio = new Repositorio();
+        eventos = repositorio.buscaEventoNome(nomeEvento, somentefuturos);
+
+        return eventos;
+    }
+
     /**
      *
      * @param novoNome novo nome do usuário
@@ -213,14 +222,30 @@ public class Controller {
 
     }
 
+
     public void notificacaoEventos(Usuario usuario){
         usuario.novasNotificacoesEvento();
     }
+
+
+    public void adicionaComentario(Evento evento, Usuario usuario, String comemtario){
+        if(this.usuarioPossuiIngresso(usuario, evento)){
+            evento.adicionaComentario(usuario, comemtario);
+        }
+    }
+
+
+    public boolean usuarioPossuiIngresso(Usuario usuario, Evento evento){
+        return usuario.getIngressos().stream()
+                .anyMatch(ingresso -> Objects.equals(ingresso.getEvento(), evento.getId()));
+    }
+
 
     public static void main(String[] args){
         Controller controller = new Controller();
         //Usuario usuario = controller.login("login", "senha123");
         Usuario adm = controller.login("adm", "senhadoadm");
+
 
         //Evento evento = controller.cadastrarEvento(adm, "evento de teste", "evento para testar", data, 20, 0);
 

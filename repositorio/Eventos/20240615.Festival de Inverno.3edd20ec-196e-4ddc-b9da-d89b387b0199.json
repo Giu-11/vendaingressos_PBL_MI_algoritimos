@@ -1,0 +1,11 @@
+{
+  "nome": "Festival de Inverno",
+  "descricao": "Um festival com música e gastronomia típica de inverno.",
+  "data": "2024-06-15",
+  "precoIngresso": 50.0,
+  "totalAssentos": 200,
+  "assentosComprados": 0,
+  "id": "20240615.Festival de Inverno.3edd20ec-196e-4ddc-b9da-d89b387b0199",
+  "comentarios": {},
+  "dataformatada": "15/06/2024"
+}

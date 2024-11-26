@@ -1,0 +1,11 @@
+{
+  "nome": "Noite de Jazz",
+  "descricao": "Uma noite com as melhores bandas de jazz.",
+  "data": "2024-11-30",
+  "precoIngresso": 40.0,
+  "totalAssentos": 200,
+  "assentosComprados": 0,
+  "id": "20241130.Noite de Jazz.2afa9ca6-4aad-4ab2-8ca7-dc8018814f01",
+  "comentarios": {},
+  "dataformatada": "30/11/2024"
+}

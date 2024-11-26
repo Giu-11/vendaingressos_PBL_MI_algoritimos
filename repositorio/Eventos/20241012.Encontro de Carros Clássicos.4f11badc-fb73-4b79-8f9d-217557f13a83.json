@@ -1,0 +1,11 @@
+{
+  "nome": "Encontro de Carros Clássicos",
+  "descricao": "Mostra e concurso de veículos antigos.",
+  "data": "2024-10-12",
+  "precoIngresso": 20.0,
+  "totalAssentos": 400,
+  "assentosComprados": 0,
+  "id": "20241012.Encontro de Carros Clássicos.4f11badc-fb73-4b79-8f9d-217557f13a83",
+  "comentarios": {},
+  "dataformatada": "12/10/2024"
+}

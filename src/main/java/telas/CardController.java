@@ -36,6 +36,13 @@ public class CardController {
         this.usuariologado = usuario;
     }
 
+    CardController(Evento evento, Usuario usuario){
+        this.nome = evento.getNome();
+        this.data = evento.getDataformatada();
+        this.idEvento = evento.getId();
+        this.usuariologado = usuario;
+    }
+
     public void initialize(){
         this.nomeEvento.setText(this.nome);
         this.dataEvento.setText(this.data);

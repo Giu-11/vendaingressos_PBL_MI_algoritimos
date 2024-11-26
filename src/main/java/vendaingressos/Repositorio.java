@@ -120,7 +120,7 @@ public class Repositorio {
      * @param nome nome do evento que deve ser buscado nos arquivos
      * @return eventos encontrados
      */
-    public List<Evento> buscaEventoNome(String nome){
+    public List<Evento> buscaEventoNome(String nome, Boolean somenteFuturos){
         List<Evento> eventos = new ArrayList<>();
 
         Gson gson = new GsonBuilder()
@@ -130,16 +130,32 @@ public class Repositorio {
 
         Path caminho = Paths.get("repositorio/Eventos");
 
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String hoje = dataFormatada.format(LocalDate.now());
+
         try (DirectoryStream<Path> arquivos = Files.newDirectoryStream(caminho, "*.json")) {
             for (Path arquivo : arquivos) {
-                if(arquivo.getFileName().toString().toLowerCase().contains(nome.toLowerCase())){
-                    try (Reader reader = Files.newBufferedReader(arquivo)) {
-                        eventos.add(gson.fromJson(reader, Evento.class));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+                String nomeArquivo = arquivo.getFileName().toString().toLowerCase();
+
+                if(nomeArquivo.contains(nome.toLowerCase())){
+
+                    if(somenteFuturos){
+                        if(hoje.compareTo(arquivo.getFileName().toString()) < 0){
+                            try (Reader reader = Files.newBufferedReader(arquivo)) {
+                                eventos.add(gson.fromJson(reader, Evento.class));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }else {
+                        try (Reader reader = Files.newBufferedReader(arquivo)) {
+                            eventos.add(gson.fromJson(reader, Evento.class));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-                System.out.println("Arquivo JSON: " + arquivo.getFileName());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -160,7 +176,7 @@ public class Repositorio {
                 .create();
 
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd");
-        String hoje = dataFormatada.format(LocalDate.of(2024, Month.SEPTEMBER, 9));
+        String hoje = dataFormatada.format(LocalDate.now());
 
         Path caminho = Paths.get("repositorio/Eventos");
 
@@ -173,7 +189,6 @@ public class Repositorio {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("Arquivo JSON: " + arquivo.getFileName());
             }
         } catch (IOException e) {
             e.printStackTrace();

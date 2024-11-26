@@ -21,7 +21,9 @@ public class EventoController {
     @FXML
     private Button home;
     @FXML
-    private Button compra;
+    private Button comprar;
+    @FXML
+    private Button comentar;
     @FXML
     private VBox comentarios;
     @FXML
@@ -45,7 +47,21 @@ public class EventoController {
         this.descricao.setText(this.evento.getDescricao());
         this.data.setText(this.evento.getDataformatada());
         this.preco.setText(this.evento.getPrecoIngresso().toString());
-        this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
+
+        if(this.evento.isAtivo()){
+            this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
+        } else {
+            this.ingressosDisponiveis.setText("Esse evento já terminou");
+        }
+
+        if(this.evento.isAtivo()){
+            this.comentar.setDisable(true);
+        } else {
+            this.comprar.setDisable(true);
+        }
+        if(!new Controller().usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
+            this.comentar.setDisable(true);
+        }
     }
 
     @FXML

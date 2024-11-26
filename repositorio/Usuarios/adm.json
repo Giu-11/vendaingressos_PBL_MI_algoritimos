@@ -5,6 +5,6 @@
   "cpf": "000",
   "email": "emailadm@email.com",
   "ingressos": [],
-  "admin": false,
+  "admin": true,
   "notificacoes": []
 }

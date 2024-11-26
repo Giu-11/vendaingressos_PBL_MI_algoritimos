@@ -1,0 +1,11 @@
+{
+  "nome": "Exposição de Arte Moderna",
+  "descricao": "Uma exposição com obras de artistas contemporâneos.",
+  "data": "2024-08-05",
+  "precoIngresso": 30.0,
+  "totalAssentos": 300,
+  "assentosComprados": 0,
+  "id": "20240805.Exposição de Arte Moderna.8625683d-02be-44fa-bd97-fd162c9482d1",
+  "comentarios": {},
+  "dataformatada": "05/08/2024"
+}

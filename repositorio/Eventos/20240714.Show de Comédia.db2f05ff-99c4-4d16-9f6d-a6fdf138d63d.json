@@ -1,0 +1,11 @@
+{
+  "nome": "Show de Comédia",
+  "descricao": "Noite com apresentações de comediantes famosos.",
+  "data": "2024-07-14",
+  "precoIngresso": 70.0,
+  "totalAssentos": 250,
+  "assentosComprados": 0,
+  "id": "20240714.Show de Comédia.db2f05ff-99c4-4d16-9f6d-a6fdf138d63d",
+  "comentarios": {},
+  "dataformatada": "14/07/2024"
+}
