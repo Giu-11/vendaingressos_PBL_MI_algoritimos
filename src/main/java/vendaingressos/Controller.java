@@ -213,20 +213,19 @@ public class Controller {
 
     }
 
-    /*public boolean usuarioExiste(String login){
-        Repositorio repositorio = new Repositorio();
-        return repositorio.usuarioExiste(login);
-    }*/
+    public void notificacaoEventos(Usuario usuario){
+        usuario.novasNotificacoesEvento();
+    }
 
     public static void main(String[] args){
-        LocalDate data = LocalDate.of(2025, Month.NOVEMBER, 29);
-
         Controller controller = new Controller();
-        Usuario usuario = controller.login("login", "senha123");
-        //Usuario adm = controller.login("adm", "senhadoadm");
+        //Usuario usuario = controller.login("login", "senha123");
+        Usuario adm = controller.login("adm", "senhadoadm");
 
         //Evento evento = controller.cadastrarEvento(adm, "evento de teste", "evento para testar", data, 20, 0);
 
-        controller.comprarIngresso(usuario, "evento de teste", "PIX");
+        /*for(int i=0; i<20; i++) {
+            controller.comprarIngresso(usuario, "evento de teste", "PIX");
+        }*/
     }
 }

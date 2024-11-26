@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e8eaed;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="800.0">
+               <children>
+                  <Rectangle fill="#3a0ca3" height="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="nomeEvento" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="691.0" text="NOME DO EVENTO" textFill="#f6a6cc" wrapText="true">
+                           <font>
+                              <Font name="Arial Black" size="40.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#homeAction" prefHeight="69.0" prefWidth="69.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/casarosa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <StackPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </StackPane.margin>
+                  </HBox>
+               </children>
+            </StackPane>
+            <VBox prefHeight="476.0" prefWidth="800.0">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="descricao" prefHeight="69.0" prefWidth="760.0" text="descrição la la la lorem ipsum adsad asd adada dadadasd asdadasdas adsadas adasdasd sadsadas sadasd kdhasd asdasd dfgsff dasdad asdasdasd dsasdas asdasdasd asdasdasd adasdsdsadas adsadsadasdsa fdsf dsfsd f sdf sdf sd f sdf ds f df ds fsd f sd fs f dsf dsf s " textAlignment="JUSTIFY" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Data:" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="data" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="116.0" text="dia/mes/ano">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Preço do ingreso:" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="preco" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="136.0" text="\$ preço">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="ingressosDisponiveis" prefHeight="15.0" prefWidth="501.0" text="x Ingressos disponiveis!!" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin></Label>
+                  <HBox prefHeight="30.0" prefWidth="200.0">
+                     <children>
+                        <Label maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" text="Comentarios:" textFill="#3a0ca3">
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="643.0">
+                           <children>
+                              <Button fx:id="compra" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Comprar Ingresso" textFill="#f6a6cc">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="233.0" prefWidth="770.0" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane prefWidth="754.0">
+                           <children>
+                              <VBox fx:id="comentarios" fillWidth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children></VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

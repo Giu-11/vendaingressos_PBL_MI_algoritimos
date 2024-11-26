@@ -69,7 +69,7 @@ public class LoginController {
             loader.setController(controllerTela);
             Parent root = loader.load();
 
-            Stage stage = (Stage) criarConta.getScene().getWindow();
+            Stage stage = (Stage) this.criarConta.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch(IOException e){

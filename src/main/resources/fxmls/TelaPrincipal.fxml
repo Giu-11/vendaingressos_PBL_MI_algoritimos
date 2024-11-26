@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e8eaed;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3a0ca3;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -31,16 +31,15 @@
                               <Insets />
                            </HBox.margin>
                            <children>
-                              <StackPane prefHeight="29.0" prefWidth="34.0">
-                                 <children>
+                              <Button fx:id="busca" mnemonicParsing="false" prefHeight="65.0" prefWidth="44.0" style="-fx-background-color: transparent; -fx-background-radius: 10; -fx-background-image:url('@icons/person.png');" text="   ">
+                                 <graphic>
                                     <ImageView fitHeight="40.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/busca.png" />
                                        </image>
                                     </ImageView>
-                                    <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="39.0" style="-fx-background-color: transparent; -fx-background-radius: 10; -fx-background-image:url('@icons/person.png');" text="   " />
-                                 </children>
-                              </StackPane>
+                                 </graphic>
+                              </Button>
                            </children>
                            <padding>
                               <Insets right="10.0" />
@@ -55,9 +54,9 @@
             </StackPane>
             <HBox prefHeight="530.0" prefWidth="800.0">
                <children>
-                  <VBox prefHeight="530.0" prefWidth="620.0">
+                  <VBox prefHeight="530.0" prefWidth="620.0" style="-fx-background-color: #e8eaed;">
                      <children>
-                        <Label prefHeight="90.0" prefWidth="647.0" text="Seus Eventos" textFill="#d25190">
+                        <Label prefHeight="14.0" prefWidth="600.0" style="-fx-background-color: #e8eaed;" text="Seus Eventos" textFill="#d25190">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
@@ -79,6 +78,15 @@
                         </ScrollPane>
                      </children>
                   </VBox>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="522.0" prefWidth="180.0" style="-fx-background-color: #CBCFE5;" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane prefWidth="178.0" style="-fx-background-color: #CBCFE5;">
+                           <children>
+                              <VBox fx:id="notificacoes" prefHeight="577.0" prefWidth="166.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-113.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
             </HBox>
          </children>

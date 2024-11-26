@@ -1,0 +1,10 @@
+{
+  "login": "loginMassa",
+  "senha": "123",
+  "nome": "AAAAAAAAAAAAAA",
+  "cpf": "2",
+  "email": "emailmassa@email.com",
+  "ingressos": [],
+  "admin": false,
+  "notificacoes": []
+}

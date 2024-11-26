@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/calendar_month_24dp_3A0CA3_FILL0_wght400_GRAD0_opsz24.png" />
+                  <Image url="@../icons/calendario1.png" />
                </image>
             </ImageView>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="570.0">

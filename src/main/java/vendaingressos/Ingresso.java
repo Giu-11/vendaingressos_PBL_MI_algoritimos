@@ -98,7 +98,7 @@ public class Ingresso {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
 
-        if (data.isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9))) {
+        if (data.isAfter(LocalDate.now())) {
             this.ativo = false;
             return true;
         }

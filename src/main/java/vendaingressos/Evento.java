@@ -115,7 +115,7 @@ public class Evento {
     public boolean isAtivo() {
         //Data definida como 9 de setembro para simulação do código
         //garante que os resultados dos testes sejam os esperados para as datas definidas neles
-        return data.isAfter(LocalDate.of(2024, Month.SEPTEMBER, 9));
+        return data.isAfter(LocalDate.now());
     }
 
     @Override
@@ -154,7 +154,7 @@ public class Evento {
      * @param comentario comentário feito no evento
      */
     public void adicionaComentario(Usuario usuario, String comentario){
-        if(this.data.isBefore(LocalDate.of(2024, Month.SEPTEMBER, 9))){
+        if(this.data.isBefore(LocalDate.now())){
             boolean temIngresso = usuario.getIngressos().stream()
                     .anyMatch(ingresso -> Objects.equals(ingresso.getEvento(), this.id));
             if (temIngresso) {

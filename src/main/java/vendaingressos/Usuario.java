@@ -12,6 +12,8 @@
 
 package vendaingressos;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 /**
@@ -25,6 +27,7 @@ public class Usuario {
     private String email;
     private List<Ingresso> ingressos;
     private final boolean admin;
+    private List<String> notificacoes;
 
     //Construtor
 
@@ -44,6 +47,7 @@ public class Usuario {
         this.login = login;
         this.admin = admin;
         this.ingressos = new ArrayList<>();
+        this.notificacoes = new ArrayList<>();
     }
 
     //Getters
@@ -65,6 +69,10 @@ public class Usuario {
 
     public List<Ingresso> getIngressos() {
         return ingressos;
+    }
+
+    public List<String> getNotificacoes() {
+        return notificacoes;
     }
 
     /**
@@ -132,6 +140,7 @@ public class Usuario {
      */
     public void adicionarIngresso(Ingresso ingresso) {
         ingressos.add(ingresso);
+        this.novaNotificacaoCompra(ingresso.getRecibo());
         this.ingressos.sort(Comparator.comparing(Ingresso::getData));
     }
 
@@ -141,5 +150,30 @@ public class Usuario {
      */
     public void cancelarIngresso(Ingresso ingresso){
         ingressos.remove(ingresso);
+    }
+
+    private void addNotificacao(String notificacao){
+        if(notificacao != null) {
+            this.notificacoes.add(0, notificacao);
+        }
+    }
+
+    public void novaNotificacaoCompra(Recibo recibo){
+        this.addNotificacao(recibo.toString());
+    }
+
+    public void novasNotificacoesEvento(){
+        LocalDate hoje = LocalDate.now();
+        for(Ingresso ingresso: this.ingressos){
+            Period diferenca = Period.between(hoje, ingresso.getData());
+            int mesesDeDiferenca = Math.abs(diferenca.getMonths());
+            int anosDeDiferenca = Math.abs(diferenca.getYears());
+            mesesDeDiferenca += anosDeDiferenca * 12;
+            int diasDeDiferenca = Math.abs(diferenca.getDays());
+
+            if(mesesDeDiferenca <= 1 && diasDeDiferenca <= 31){
+                this.notificacoes.add(0,"Seu evento "+ingresso+" está chegando em " + diasDeDiferenca + " dias");
+            }
+        }
     }
 }

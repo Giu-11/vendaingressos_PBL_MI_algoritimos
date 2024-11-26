@@ -26,6 +26,8 @@ public class PrincipalController {
     private Label teste;
     @FXML
     private VBox eventos;
+    @FXML
+    private VBox notificacoes;
 
     private Usuario usuarioLogado;
 
@@ -33,14 +35,10 @@ public class PrincipalController {
         this.usuarioLogado = usuarioLogado;
     }
 
-    public void initialize(){
-        Controller controller = new Controller();
-
-        this.teste.setText(this.usuarioLogado.getNome());
-
-        for(Ingresso ingresso: usuarioLogado.getIngressos()){
+    public void colocaEventos() {
+        for (Ingresso ingresso : usuarioLogado.getIngressos()) {
             try {
-                CardController cardController = new CardController(ingresso);
+                CardController cardController = new CardController(ingresso, usuarioLogado);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/cardEvento.fxml"));
                 loader.setController(cardController);
                 Pane cardEvento = loader.load();
@@ -51,19 +49,34 @@ public class PrincipalController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            /*
+        }
+    }
+
+    public void colocanotificacoes(){
+        for (String notificacao : usuarioLogado.getNotificacoes()) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("card.fxml"));
-                Pane card = loader.load();
+                NotificacoesController notificacaoController = new NotificacoesController(notificacao);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/notificacao.fxml"));
+                loader.setController(notificacaoController);
+                Pane cardnotificacao = loader.load();
 
-                CardController controller = loader.getController();
-                controller.setData(item.getTitle(), item.getDescription());
+                this.notificacoes.getChildren().add(cardnotificacao);
+                VBox.setVgrow(cardnotificacao, Priority.ALWAYS);
+                System.out.println(notificacao);
 
-                cardContainer.getChildren().add(card);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            */
         }
     }
+
+
+    public void initialize() {
+        Controller controller = new Controller();
+
+        this.teste.setText(this.usuarioLogado.getNome());
+
+        this.colocaEventos();
+        this.colocanotificacoes();
+        }
 }

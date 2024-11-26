@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="166.0" style="-fx-background-color: #CBCFE5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="-41.0" layoutY="-25.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="69.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/notificacao1.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="notificacao" alignment="TOP_LEFT" prefHeight="64.0" prefWidth="173.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec auctor ipsum, vitae tristique libero. Suspendisse aliquet mattis nulla" textFill="#3a0ca3" wrapText="true">
+               <font>
+                  <Font name="Arial" size="10.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

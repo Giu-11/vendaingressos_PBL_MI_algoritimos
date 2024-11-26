@@ -27,10 +27,7 @@ public class Recibo {
     private final String formaPagamento;
 
     public Recibo( double valorPago, String formaPagamento) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2024, Calendar.SEPTEMBER, 9);
-
-        this.dataCompra = LocalDate.of(2024, Month.SEPTEMBER, 9);
+        this.dataCompra = LocalDate.now();
         this.valorPago = valorPago;
         this.formaPagamento = formaPagamento;
     }
@@ -52,10 +49,6 @@ public class Recibo {
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String dataString = dataFormatada.format(this.dataCompra);
 
-        return "Recibo{" +
-                "dataCompra=" + dataString +
-                ", valorPago=" + valorPago +
-                ", formaPagamento=" + formaPagamento +
-                '}';
+        return  "Compra de Ingresso realizada: " + "data da compra " + dataString + ", forma de pagamento: " + formaPagamento + ", de $" + valorPago;
     }
 }
