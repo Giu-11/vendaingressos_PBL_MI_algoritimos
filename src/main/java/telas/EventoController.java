@@ -79,4 +79,20 @@ public class EventoController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void comprarAction(){
+        try {
+            CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpCompra.fxml"));
+            loader.setController(compraController);
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Compra");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }

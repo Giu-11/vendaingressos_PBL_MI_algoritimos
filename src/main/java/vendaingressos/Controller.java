@@ -114,6 +114,21 @@ public class Controller {
     }
 
 
+    public Ingresso comprarIngresso(Usuario usuario, Evento evento, String formaPagamento) {
+        Repositorio repositorio = new Repositorio();
+        if (evento.getTotalAssentos() > evento.getAssentosComprados()) {
+            Ingresso novoIngresso = new Ingresso(evento, true, formaPagamento);
+            usuario.adicionarIngresso(novoIngresso);
+            evento.compraIngresso();
+            repositorio.guardaUsuario(usuario);
+            repositorio.guardaEvento(evento);
+            return novoIngresso;
+
+        }
+        return null;
+    }
+
+
     /**
      * Retorna 'true' se o usuário possui o ingresso
      * e assim esse pode ser cancelado

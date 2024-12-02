@@ -4,7 +4,190 @@
   "nome": "nome",
   "cpf": "1",
   "email": "email1@gmail.com",
-  "ingressos": [],
+  "ingressos": [
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 15.0
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    },
+    {
+      "evento": "20250115.Workshop de Meditação.ed864c7e-0ff6-430e-bdde-69e45a0b67cc",
+      "preco": 70.0,
+      "ativo": true,
+      "data": "2025-01-15",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 70.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "15/01/2025",
+      "nomeEvento": "Workshop de Meditação"
+    },
+    {
+      "evento": "20250510.ExpoTech 2025.79077780-1404-4787-aeab-1082ef9ceafb",
+      "preco": 50.0,
+      "ativo": true,
+      "data": "2025-05-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 50.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "10/05/2025",
+      "nomeEvento": "ExpoTech 2025"
+    },
+    {
+      "evento": "20250910.Semana de Literatura.d8f9c6cb-016a-42d0-9b52-120194bf62e0",
+      "preco": 20.0,
+      "ativo": true,
+      "data": "2025-09-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 20.0,
+        "formaPagamento": "Débito"
+      },
+      "dataformatada": "10/09/2025",
+      "nomeEvento": "Semana de Literatura"
+    },
+    {
+      "evento": "20250910.Semana de Literatura.d8f9c6cb-016a-42d0-9b52-120194bf62e0",
+      "preco": 20.0,
+      "ativo": true,
+      "data": "2025-09-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 20.0,
+        "formaPagamento": "Débito"
+      },
+      "dataformatada": "10/09/2025",
+      "nomeEvento": "Semana de Literatura"
+    },
+    {
+      "evento": "20250910.Semana de Literatura.d8f9c6cb-016a-42d0-9b52-120194bf62e0",
+      "preco": 20.0,
+      "ativo": true,
+      "data": "2025-09-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 20.0,
+        "formaPagamento": "Débito"
+      },
+      "dataformatada": "10/09/2025",
+      "nomeEvento": "Semana de Literatura"
+    },
+    {
+      "evento": "20250910.Semana de Literatura.d8f9c6cb-016a-42d0-9b52-120194bf62e0",
+      "preco": 20.0,
+      "ativo": true,
+      "data": "2025-09-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 20.0,
+        "formaPagamento": "Débito"
+      },
+      "dataformatada": "10/09/2025",
+      "nomeEvento": "Semana de Literatura"
+    },
+    {
+      "evento": "20250910.Semana de Literatura.d8f9c6cb-016a-42d0-9b52-120194bf62e0",
+      "preco": 20.0,
+      "ativo": true,
+      "data": "2025-09-10",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 20.0,
+        "formaPagamento": "Débito"
+      },
+      "dataformatada": "10/09/2025",
+      "nomeEvento": "Semana de Literatura"
+    },
+    {
+      "evento": "20270718.Festival de Música Eletrônica.5a4382a5-5455-49e2-bf08-25f84e294032",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2027-07-18",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "18/07/2027",
+      "nomeEvento": "Festival de Música Eletrônica"
+    },
+    {
+      "evento": "20270718.Festival de Música Eletrônica.5a4382a5-5455-49e2-bf08-25f84e294032",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2027-07-18",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "18/07/2027",
+      "nomeEvento": "Festival de Música Eletrônica"
+    },
+    {
+      "evento": "20270718.Festival de Música Eletrônica.5a4382a5-5455-49e2-bf08-25f84e294032",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2027-07-18",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "18/07/2027",
+      "nomeEvento": "Festival de Música Eletrônica"
+    },
+    {
+      "evento": "20270718.Festival de Música Eletrônica.5a4382a5-5455-49e2-bf08-25f84e294032",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2027-07-18",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "18/07/2027",
+      "nomeEvento": "Festival de Música Eletrônica"
+    },
+    {
+      "evento": "20270718.Festival de Música Eletrônica.5a4382a5-5455-49e2-bf08-25f84e294032",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2027-07-18",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "18/07/2027",
+      "nomeEvento": "Festival de Música Eletrônica"
+    }
+  ],
   "admin": false,
-  "notificacoes": []
+  "notificacoes": [
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Débito, de $20.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Débito, de $20.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Débito, de $20.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Débito, de $20.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Débito, de $20.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $50.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $70.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: null, de $15.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $120.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $120.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $120.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $120.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $120.0"
+  ]
 }
