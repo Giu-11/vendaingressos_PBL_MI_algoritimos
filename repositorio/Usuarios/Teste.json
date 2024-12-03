@@ -1,0 +1,82 @@
+{
+  "login": "Teste",
+  "senha": "123",
+  "nome": "Usuario de Teste",
+  "cpf": "1234567890",
+  "email": "email@teste.com",
+  "ingressos": [
+    {
+      "evento": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+      "preco": 2.0,
+      "ativo": true,
+      "data": "2024-12-03",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 2.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "03/12/2024",
+      "nomeEvento": "teste Comentários"
+    },
+    {
+      "evento": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+      "preco": 2.0,
+      "ativo": true,
+      "data": "2024-12-03",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 2.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "03/12/2024",
+      "nomeEvento": "teste Comentários"
+    },
+    {
+      "evento": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+      "preco": 2.0,
+      "ativo": true,
+      "data": "2024-12-03",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 2.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "03/12/2024",
+      "nomeEvento": "teste Comentários"
+    },
+    {
+      "evento": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+      "preco": 2.0,
+      "ativo": true,
+      "data": "2024-12-03",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 2.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "03/12/2024",
+      "nomeEvento": "teste Comentários"
+    },
+    {
+      "evento": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+      "preco": 2.0,
+      "ativo": true,
+      "data": "2024-12-03",
+      "recibo": {
+        "dataCompra": "2024-12-02",
+        "valorPago": 2.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "03/12/2024",
+      "nomeEvento": "teste Comentários"
+    }
+  ],
+  "admin": false,
+  "notificacoes": [
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $2.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $2.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $2.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $2.0",
+    "Compra de Ingresso realizada: data da compra 02/12/2024, forma de pagamento: Crédito, de $2.0"
+  ]
+}

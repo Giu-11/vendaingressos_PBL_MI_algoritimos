@@ -1,0 +1,11 @@
+{
+  "nome": "teste Comentários",
+  "descricao": "evento para testar comentarios",
+  "data": "2024-12-03",
+  "precoIngresso": 2.0,
+  "totalAssentos": 20,
+  "assentosComprados": 5,
+  "id": "20241203.teste Comentários.6bc42b63-757f-4755-bef2-6c744846177f",
+  "comentarios": {},
+  "dataformatada": "03/12/2024"
+}

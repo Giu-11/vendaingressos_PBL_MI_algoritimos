@@ -245,7 +245,10 @@ public class Controller {
 
     public void adicionaComentario(Evento evento, Usuario usuario, String comemtario){
         if(this.usuarioPossuiIngresso(usuario, evento)){
+            Repositorio repositorio = new Repositorio();
             evento.adicionaComentario(usuario, comemtario);
+            repositorio.guardaEvento(evento);
+
         }
     }
 
@@ -255,15 +258,22 @@ public class Controller {
                 .anyMatch(ingresso -> Objects.equals(ingresso.getEvento(), evento.getId()));
     }
 
+    public boolean usuarioJaComentou(Evento evento, Usuario usuario){
+        return evento.usuarioJaComentou(usuario);
+    }
+
 
     public static void main(String[] args){
         Controller controller = new Controller();
         //Usuario usuario = controller.login("login", "senha123");
         Usuario adm = controller.login("adm", "senhadoadm");
+        LocalDate data = LocalDate.of(2024, Month.NOVEMBER, 3);
 
+        //Evento evento = controller.cadastrarEvento(adm, "teste Comentários", "evento para testar comentarios", data, 20, 2);
 
-        //Evento evento = controller.cadastrarEvento(adm, "evento de teste", "evento para testar", data, 20, 0);
+        //List<Evento> eventos = controller.buscaEventoNome("evento de teste", false);
 
+        //controller.adicionaComentario(eventos.get(0), usuario, "esse comentario é um teste");
         /*for(int i=0; i<20; i++) {
             controller.comprarIngresso(usuario, "evento de teste", "PIX");
         }*/

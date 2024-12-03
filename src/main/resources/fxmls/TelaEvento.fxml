@@ -85,7 +85,7 @@
                         </Label>
                         <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="643.0" spacing="10.0">
                            <children>
-                              <Button fx:id="comentar" layoutX="533.0" layoutY="13.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Comentar" textFill="#f6a6cc">
+                              <Button fx:id="comentar" layoutX="533.0" layoutY="13.0" mnemonicParsing="false" onAction="#comentarAction" prefHeight="20.0" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Comentar" textFill="#f6a6cc">
                                  <font>
                                     <Font name="Arial Bold" size="12.0" />
                                  </font>

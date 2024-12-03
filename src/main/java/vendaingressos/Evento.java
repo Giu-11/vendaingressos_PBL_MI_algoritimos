@@ -156,10 +156,14 @@ public class Evento {
             boolean temIngresso = usuario.getIngressos().stream()
                     .anyMatch(ingresso -> Objects.equals(ingresso.getEvento(), this.id));
             if (temIngresso) {
-                if(!this.comentarios.containsKey(usuario.getNome())) {
+                if(!this.usuarioJaComentou(usuario)) {
                     this.comentarios.put(usuario.getNome(), comentario);
                 }
             }
         }
+    }
+
+    public Boolean usuarioJaComentou(Usuario usuario){
+        return this.comentarios.containsKey(usuario.getNome());
     }
 }

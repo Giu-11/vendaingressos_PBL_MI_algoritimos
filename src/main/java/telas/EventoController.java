@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import vendaingressos.Usuario;
@@ -13,6 +16,7 @@ import vendaingressos.Evento;
 import vendaingressos.Controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class EventoController {
     private Usuario usuarioLogado;
@@ -59,9 +63,12 @@ public class EventoController {
         } else {
             this.comprar.setDisable(true);
         }
-        if(!new Controller().usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
+        Controller controller = new Controller();
+        if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento) || controller.usuarioJaComentou(this.evento, this.usuarioLogado)){
             this.comentar.setDisable(true);
         }
+
+        this.colocaComentarios();
     }
 
     @FXML
@@ -89,10 +96,46 @@ public class EventoController {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Compra");
+            stage.getIcons().add(new Image(getClass().getResource("/icons/carrinho.png").toExternalForm()));
             stage.setScene(new Scene(root));
             stage.show();
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void comentarAction(){
+        try {
+            ComentarController comentarController = new ComentarController(this.evento, this.usuarioLogado);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpComentar.fxml"));
+            loader.setController(comentarController);
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Comentar");
+            stage.getIcons().add(new Image(getClass().getResource("/icons/comentario.png").toExternalForm()));
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void colocaComentarios(){
+        for(Map.Entry<String, String> comentario: this.evento.getComentarios().entrySet()){
+            String usuario = comentario.getKey();
+            String textoComentario = comentario.getValue();
+            try {
+                ComantarioController comantarioController = new ComantarioController(usuario, textoComentario);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/comentario.fxml"));
+                loader.setController(comantarioController);
+                Pane cardComentario = loader.load();
+
+                this.comentarios.getChildren().add(cardComentario);
+                VBox.setVgrow(cardComentario, Priority.ALWAYS);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 }
