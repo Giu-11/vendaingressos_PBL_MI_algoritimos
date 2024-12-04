@@ -89,6 +89,7 @@ public class EventoController {
             //this.comprar.setDisable(true);
         }
 
+        controller.notificacaoEventos(this.usuarioLogado);
         this.colocaComentarios();
     }
 
@@ -110,7 +111,7 @@ public class EventoController {
 
     @FXML
     public void comprarAction(){
-        if(!this.evento.isAtivo()) {
+        if(this.evento.isAtivo()) {
             try {
                 CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpCompra.fxml"));

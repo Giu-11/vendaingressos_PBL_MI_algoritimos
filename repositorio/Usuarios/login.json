@@ -6,6 +6,266 @@
   "email": "meuemail@gmail.com",
   "ingressos": [
     {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
+      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
+      "preco": 0.0,
+      "ativo": true,
+      "data": "2023-11-29",
+      "recibo": {
+        "dataCompra": "2023-11-22",
+        "valorPago": 0.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "29/11/2023",
+      "nomeEvento": "evento de teste"
+    },
+    {
       "evento": "20240322.Conferência de Sustentabilidade.37dc0bc3-884b-4868-809f-2a973341ceea",
       "preco": 25.0,
       "ativo": true,
@@ -19,268 +279,50 @@
       "nomeEvento": "Conferência de Sustentabilidade"
     },
     {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
       "ativo": true,
-      "data": "2023-11-29",
+      "data": "2024-12-31",
       "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
+        "dataCompra": "2024-12-04",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
       },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
     },
     {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
       "ativo": true,
-      "data": "2023-11-29",
+      "data": "2024-12-31",
       "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
+        "dataCompra": "2024-12-04",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
       },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
     },
     {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
       "ativo": true,
-      "data": "2023-11-29",
+      "data": "2024-12-31",
       "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
+        "dataCompra": "2024-12-04",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
       },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
-    },
-    {
-      "evento": "20231129.evento de teste.f3c97d0c-97c3-479b-83dd-251c605aa37b",
-      "preco": 0.0,
-      "ativo": true,
-      "data": "2023-11-29",
-      "recibo": {
-        "dataCompra": "2023-11-22",
-        "valorPago": 0.0,
-        "formaPagamento": "PIX"
-      },
-      "dataformatada": "29/11/2023",
-      "nomeEvento": "evento de teste"
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
     }
   ],
   "admin": false,
   "notificacoes": [
+    "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",
+    "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",
+    "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",
     "Compra de Ingresso realizada: data da compra 26/11/2023, forma de pagamento: PIX, de $25.0",
     "Compra de Ingresso realizada: data da compra 22/11/2023, forma de pagamento\u003dPIX, de $0.0",
     "Compra de Ingresso realizada: data da compra 22/11/2023, forma de pagamento\u003dPIX, de $0.0",
