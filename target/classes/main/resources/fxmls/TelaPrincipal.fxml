@@ -16,12 +16,16 @@
                   <Rectangle fill="#3a0ca3" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="28.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/person.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="teste" alignment="TOP_LEFT" text="Nome logado" textFill="#e8eaed">
+                        <Button fx:id="usuario" ellipsisString="" mnemonicParsing="false" onAction="#usuarioAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/person.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label fx:id="teste" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="521.0" text="Nome logado" textFill="#e8eaed">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>

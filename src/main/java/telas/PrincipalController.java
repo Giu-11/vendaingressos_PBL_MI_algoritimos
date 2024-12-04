@@ -30,6 +30,8 @@ public class PrincipalController {
     private VBox notificacoes;
     @FXML
     private Button busca;
+    @FXML
+    private Button usuario;
 
     private Usuario usuarioLogado;
 
@@ -90,6 +92,22 @@ public class PrincipalController {
             Parent root = loader.load();
 
             Stage stage = (Stage) this.busca.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void usuarioAction(){
+        try{
+            UsuarioController usuarioController = new UsuarioController(usuarioLogado);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/TelaUsuario.fxml"));
+            loader.setController(usuarioController);
+            Parent root = loader.load();
+
+            Stage stage = (Stage) this.usuario.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch(IOException e){
