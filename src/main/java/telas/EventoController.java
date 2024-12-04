@@ -6,10 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import vendaingressos.Usuario;
 import vendaingressos.Evento;
@@ -58,14 +60,33 @@ public class EventoController {
             this.ingressosDisponiveis.setText("Esse evento já terminou");
         }
 
-        if(this.evento.isAtivo()){
-            this.comentar.setDisable(true);
-        } else {
-            this.comprar.setDisable(true);
-        }
         Controller controller = new Controller();
-        if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento) || controller.usuarioJaComentou(this.evento, this.usuarioLogado)){
-            this.comentar.setDisable(true);
+        if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em evento que você não possui um ingresso");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20 ");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comentar.setDisable(true);
+        } else if(controller.usuarioJaComentou(this.evento, this.usuarioLogado)){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em um evento mais de uma vez");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comentar.setDisable(true);
+        }
+
+        if(this.evento.isAtivo()){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em eventos que não aconteceram");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //.comentar.setDisable(true);
+        } else {
+            Tooltip tooltip = new Tooltip("Não é possível comprar um evento que já passou");
+            Tooltip.install(this.comprar, tooltip);
+            this.comprar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comprar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comprar.setDisable(true);
         }
 
         this.colocaComentarios();
@@ -89,35 +110,40 @@ public class EventoController {
 
     @FXML
     public void comprarAction(){
-        try {
-            CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpCompra.fxml"));
-            loader.setController(compraController);
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Compra");
-            stage.getIcons().add(new Image(getClass().getResource("/icons/carrinho.png").toExternalForm()));
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch (IOException e){
-            e.printStackTrace();
+        if(!this.evento.isAtivo()) {
+            try {
+                CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpCompra.fxml"));
+                loader.setController(compraController);
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Compra");
+                stage.getIcons().add(new Image(getClass().getResource("/icons/carrinho.png").toExternalForm()));
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @FXML
     public void comentarAction(){
-        try {
-            ComentarController comentarController = new ComentarController(this.evento, this.usuarioLogado);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpComentar.fxml"));
-            loader.setController(comentarController);
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Comentar");
-            stage.getIcons().add(new Image(getClass().getResource("/icons/comentario.png").toExternalForm()));
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch (IOException e){
-            e.printStackTrace();
+        Controller controller = new Controller();
+        if(!(this.evento.isAtivo() || !controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento) || controller.usuarioJaComentou(this.evento, this.usuarioLogado))) {
+            try {
+                ComentarController comentarController = new ComentarController(this.evento, this.usuarioLogado);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpComentar.fxml"));
+                loader.setController(comentarController);
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Comentar");
+                stage.getIcons().add(new Image(getClass().getResource("/icons/comentario.png").toExternalForm()));
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
