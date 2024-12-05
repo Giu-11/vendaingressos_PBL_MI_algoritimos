@@ -316,10 +316,27 @@
       },
       "dataformatada": "31/12/2024",
       "nomeEvento": "Maratona de Cinema"
+    },
+    {
+      "evento": "20250722.Festival Gastronômico.fccab1f7-edfd-416b-9df1-0b5b1d9a65b5",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2025-07-22",
+      "recibo": {
+        "dataCompra": "2024-12-04",
+        "valorPago": 120.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "22/07/2025",
+      "nomeEvento": "Festival Gastronômico"
     }
   ],
   "admin": false,
   "notificacoes": [
+    "04/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $120.0",
+    "Seu evento Maratona de Cinema está chegando em 27 dias",
+    "Seu evento Maratona de Cinema está chegando em 27 dias",
+    "Seu evento Maratona de Cinema está chegando em 27 dias",
     "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",
     "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",
     "Compra de Ingresso realizada: data da compra 04/12/2024, forma de pagamento: Crédito, de $15.0",

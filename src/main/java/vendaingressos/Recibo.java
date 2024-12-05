@@ -49,6 +49,6 @@ public class Recibo {
         DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String dataString = dataFormatada.format(this.dataCompra);
 
-        return  "Compra de Ingresso realizada: " + "data da compra " + dataString + ", forma de pagamento: " + formaPagamento + ", de $" + valorPago;
+        return  dataString + " Compra de Ingresso realizada: forma de pagamento: " + formaPagamento + ", de $" + valorPago;
     }
 }

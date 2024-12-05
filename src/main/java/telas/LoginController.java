@@ -32,6 +32,7 @@ public class LoginController {
         if((login != null) && (senha != null)){
             Usuario usuario = controller.login(login, senha);
             if(usuario != null){
+                controller.notificacaoEventos(usuario);
                 System.out.println("foi vey");
                 this.irTelaInicial(usuario);
             } else {

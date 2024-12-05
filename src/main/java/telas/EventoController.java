@@ -89,7 +89,6 @@ public class EventoController {
             //this.comprar.setDisable(true);
         }
 
-        controller.notificacaoEventos(this.usuarioLogado);
         this.colocaComentarios();
     }
 

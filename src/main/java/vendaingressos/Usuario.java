@@ -15,6 +15,7 @@ package vendaingressos;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Usuário do sistema, pode ser administrador
@@ -155,6 +156,7 @@ public class Usuario {
     private void addNotificacao(String notificacao){
         if(notificacao != null) {
             this.notificacoes.add(0, notificacao);
+            //this.notificacoes = this.notificacoes.stream().distinct().toList();
         }
     }
 
@@ -172,7 +174,7 @@ public class Usuario {
             int diasDeDiferenca = Math.abs(diferenca.getDays());
 
             if(mesesDeDiferenca <= 1 && diasDeDiferenca <= 31){
-                this.notificacoes.add(0,"Seu evento "+ingresso+" está chegando em " + diasDeDiferenca + " dias");
+                this.addNotificacao("Seu evento "+ingresso.getNomeEvento()+" está chegando em " + diasDeDiferenca + " dias");
             }
         }
     }
