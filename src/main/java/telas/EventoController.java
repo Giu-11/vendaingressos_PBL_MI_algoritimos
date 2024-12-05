@@ -54,11 +54,7 @@ public class EventoController {
         this.data.setText(this.evento.getDataformatada());
         this.preco.setText(this.evento.getPrecoIngresso().toString());
 
-        if(this.evento.isAtivo()){
-            this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
-        } else {
-            this.ingressosDisponiveis.setText("Esse evento já terminou");
-        }
+        this.colocaIngressosRestantes();
 
         Controller controller = new Controller();
         if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
@@ -120,6 +116,9 @@ public class EventoController {
                 stage.setTitle("Compra");
                 stage.getIcons().add(new Image(getClass().getResource("/icons/carrinho.png").toExternalForm()));
                 stage.setScene(new Scene(root));
+
+                stage.setOnHidden(evnt -> {this.colocaIngressosRestantes();});
+
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -140,6 +139,9 @@ public class EventoController {
                 stage.setTitle("Comentar");
                 stage.getIcons().add(new Image(getClass().getResource("/icons/comentario.png").toExternalForm()));
                 stage.setScene(new Scene(root));
+
+                stage.setOnHidden(event -> {this.colocaComentarios();});
+
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -162,6 +164,14 @@ public class EventoController {
             }catch (IOException e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void colocaIngressosRestantes(){
+        if(this.evento.isAtivo()){
+            this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
+        } else {
+            this.ingressosDisponiveis.setText("Esse evento já terminou");
         }
     }
 }

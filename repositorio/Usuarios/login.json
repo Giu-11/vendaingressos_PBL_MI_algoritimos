@@ -329,10 +329,27 @@
       },
       "dataformatada": "22/07/2025",
       "nomeEvento": "Festival Gastronômico"
+    },
+    {
+      "evento": "20251210.Teatro de Improviso.5d941f5e-0ebb-4105-9e67-4ce01abc1b0e",
+      "preco": 60.0,
+      "ativo": true,
+      "data": "2025-12-10",
+      "recibo": {
+        "dataCompra": "2024-12-05",
+        "valorPago": 60.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "10/12/2025",
+      "nomeEvento": "Teatro de Improviso"
     }
   ],
   "admin": false,
   "notificacoes": [
+    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $60.0",
+    "Seu evento Maratona de Cinema está chegando em 26 dias",
+    "Seu evento Maratona de Cinema está chegando em 26 dias",
+    "Seu evento Maratona de Cinema está chegando em 26 dias",
     "04/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $120.0",
     "Seu evento Maratona de Cinema está chegando em 27 dias",
     "Seu evento Maratona de Cinema está chegando em 27 dias",
