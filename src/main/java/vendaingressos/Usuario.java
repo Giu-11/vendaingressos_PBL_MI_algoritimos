@@ -160,7 +160,6 @@ public class Usuario {
     private void addNotificacao(String notificacao){
         if(notificacao != null) {
             this.notificacoes.add(0, notificacao);
-            this.notificacoes = this.notificacoes.stream().distinct().toList();
         }
     }
 
@@ -185,7 +184,10 @@ public class Usuario {
     }
 
     public void limpaNotificacoes(){
-        this.notificacoes = this.notificacoes.stream().distinct().toList();
+        if (!(this.notificacoes instanceof ArrayList)) {
+            this.notificacoes = new ArrayList<>(this.notificacoes);
+        }
+        this.notificacoes = this.notificacoes.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
         if(this.notificacoes.size()>50){
             this.notificacoes.subList(51, this.notificacoes.size()).clear();
         }
