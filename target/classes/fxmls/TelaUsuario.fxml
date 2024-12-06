@@ -111,12 +111,12 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="280.0" prefWidth="405.0" spacing="50.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#mudarDadosAction" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Mudar dados" textFill="#f6a6cc">
+                        <Button fx:id="mudarDados" mnemonicParsing="false" onAction="#mudarDadosAction" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Mudar dados" textFill="#f6a6cc">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="mudarSenhaAction" mnemonicParsing="false" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Mudar senha" textFill="#cbcfe5">
+                        <Button fx:id="mudarSenha" mnemonicParsing="false" onAction="#mudarSenhaAction" style="-fx-background-color: #3a0ca3; -fx-background-radius: 20;" text="Mudar senha" textFill="#cbcfe5">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
                            </font>

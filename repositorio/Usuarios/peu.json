@@ -1,6 +1,6 @@
 {
   "login": "peu",
-  "senha": "senha123",
+  "senha": "senha",
   "nome": "peu borges",
   "cpf": "-2",
   "email": "emailMassa@zap.com.br",
@@ -60,9 +60,7 @@
   ],
   "admin": false,
   "notificacoes": [
-    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
-    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
-    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
+    "Seu evento Maratona de Cinema está chegando em 25 dias",
     "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0"
   ]
 }

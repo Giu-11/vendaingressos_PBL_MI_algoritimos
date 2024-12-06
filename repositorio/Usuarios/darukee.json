@@ -1,0 +1,26 @@
+{
+  "login": "darukee",
+  "senha": "1234",
+  "nome": "Kaoru Seta",
+  "cpf": "42042042069",
+  "email": "kaoruseta@email.com",
+  "ingressos": [
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-06",
+        "valorPago": 15.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    }
+  ],
+  "admin": false,
+  "notificacoes": [
+    "06/12/2024 Compra de Ingresso realizada: forma de pagamento: PIX, de $15.0"
+  ]
+}

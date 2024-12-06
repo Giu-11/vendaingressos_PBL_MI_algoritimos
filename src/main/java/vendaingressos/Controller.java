@@ -218,10 +218,11 @@ public class Controller {
      * @param senhaAntiga a antiga senha
      * @param usuario usuário que está trocando sua senha
      */
-    public void editaSenhaUsuario(String novaSenha, String senhaAntiga, Usuario usuario){
+    public boolean editaSenhaUsuario(String novaSenha, String senhaAntiga, Usuario usuario){
         Repositorio repositorio = new Repositorio();
-        usuario.mudarSenha(senhaAntiga, novaSenha);
+        boolean resultado = usuario.mudarSenha(senhaAntiga, novaSenha);
         repositorio.guardaUsuario(usuario);
+        return resultado;
 
     }
 

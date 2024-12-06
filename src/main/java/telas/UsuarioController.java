@@ -24,6 +24,10 @@ public class UsuarioController {
     private Label cpfUsuario;
     @FXML
     private Button home;
+    @FXML
+    private Button mudarSenha;
+    @FXML
+    private Button mudarDados;
 
     private final Usuario usuarioLogado;
 
@@ -58,7 +62,19 @@ public class UsuarioController {
 
     @FXML
     public void mudarSenhaAction(){
-        //TODO
+        try {
+            EdicaoSenhaUsuarioController edicaoSenhaUsuarioController = new EdicaoSenhaUsuarioController(this.usuarioLogado);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/edicaoSenhaUsuario.fxml"));
+            loader.setController(edicaoSenhaUsuarioController);
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Editar Dados");
+            stage.getIcons().add(new Image(getClass().getResource("/icons/editar.png").toExternalForm()));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
