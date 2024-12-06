@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #e2e5eb;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="295.0" text="preencha apenas os espaçoes dos dados que deseja mudar" textFill="#3a0ca3" wrapText="true">
+               <font>
+                  <Font name="Arial" size="10.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <VBox prefHeight="29.0" prefWidth="295.0">
+               <children>
+                  <Label text="Nome:" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="novoNome" promptText="Digite seu novo nome">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox layoutX="15.0" layoutY="34.0" prefHeight="29.0" prefWidth="295.0">
+               <children>
+                  <Label text="CPF:" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="novoCPF" promptText="Digite seu novo CPF">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </VBox>
+            <VBox layoutX="15.0" layoutY="86.0" prefHeight="29.0" prefWidth="295.0">
+               <children>
+                  <Label text="Email:" textFill="#3a0ca3">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="novoEmail" promptText="Digite seu novo email">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="155.0">
+               <children>
+                  <Button fx:id="cancelar" mnemonicParsing="false" onAction="#cancelarAction" style="-fx-background-color: transparent;" text="Cancelar" textFill="#3a0ca3" underline="true" />
+                  <Button fx:id="confirmar" layoutX="123.0" layoutY="18.0" mnemonicParsing="false" onAction="#confirmarAction" style="-fx-background-color: #3a0ca3; -fx-background-radius: 10;" text="Confirmar" textFill="#f6a6cc" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

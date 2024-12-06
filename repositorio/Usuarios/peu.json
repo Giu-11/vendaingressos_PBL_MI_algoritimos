@@ -1,0 +1,68 @@
+{
+  "login": "peu",
+  "senha": "senha123",
+  "nome": "peu borges",
+  "cpf": "-2",
+  "email": "emailMassa@zap.com.br",
+  "ingressos": [
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-05",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    },
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-05",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    },
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-05",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    },
+    {
+      "evento": "20241231.Maratona de Cinema.139b1fac-7198-4b90-8e7b-6f5043dcf146",
+      "preco": 15.0,
+      "ativo": true,
+      "data": "2024-12-31",
+      "recibo": {
+        "dataCompra": "2024-12-05",
+        "valorPago": 15.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "31/12/2024",
+      "nomeEvento": "Maratona de Cinema"
+    }
+  ],
+  "admin": false,
+  "notificacoes": [
+    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
+    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
+    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0",
+    "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $15.0"
+  ]
+}

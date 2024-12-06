@@ -237,6 +237,12 @@ public class Controller {
 
     }
 
+    public void editaCpfUsuario(String novoCpf, Usuario usuario){
+        Repositorio repositorio = new Repositorio();
+        usuario.mudarCpf(novoCpf);
+        repositorio.guardaUsuario(usuario);
+    }
+
 
     public void notificacaoEventos(Usuario usuario){
         usuario.novasNotificacoesEvento();

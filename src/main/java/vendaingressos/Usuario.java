@@ -98,6 +98,10 @@ public class Usuario {
         this.email= novoEmail;
     }
 
+    public void mudarCpf(String novoCpf){
+        this.cpf = novoCpf;
+    }
+
     /**
      * troca a senha caso a senha antiga esteja correta
      * @param senha senha antiga do usuário
