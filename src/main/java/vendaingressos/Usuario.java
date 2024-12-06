@@ -160,7 +160,7 @@ public class Usuario {
     private void addNotificacao(String notificacao){
         if(notificacao != null) {
             this.notificacoes.add(0, notificacao);
-            //this.notificacoes = this.notificacoes.stream().distinct().toList();
+            this.notificacoes = this.notificacoes.stream().distinct().toList();
         }
     }
 
@@ -180,6 +180,14 @@ public class Usuario {
             if(mesesDeDiferenca <= 1 && diasDeDiferenca <= 31){
                 this.addNotificacao("Seu evento "+ingresso.getNomeEvento()+" está chegando em " + diasDeDiferenca + " dias");
             }
+        }
+        this.limpaNotificacoes();
+    }
+
+    public void limpaNotificacoes(){
+        this.notificacoes = this.notificacoes.stream().distinct().toList();
+        if(this.notificacoes.size()>50){
+            this.notificacoes.subList(51, this.notificacoes.size()).clear();
         }
     }
 }

@@ -246,6 +246,7 @@ public class Controller {
 
     public void notificacaoEventos(Usuario usuario){
         usuario.novasNotificacoesEvento();
+        usuario.limpaNotificacoes();
     }
 
 
