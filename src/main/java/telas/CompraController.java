@@ -56,10 +56,14 @@ public class CompraController {
                 for(int i = 0; i<quantidade; i++){
                     controller.comprarIngresso(this.usuarioLogado, this.evento, formaPagamento);
                 }
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("confirmação");
+                alerta.show();
+                this.cancelarAction();
             } else {
                 this.avisoNaoSelecionado();
             }
-            this.cancelarAction();
+
         } else {
             this.avisoNaoSelecionado();
         }

@@ -13,17 +13,18 @@
 package telas;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import vendaingressos.Controller;
 import vendaingressos.Usuario;
 
 public class EdicaoSenhaUsuarioController {
     @FXML
-    private TextField senhaAtual;
+    private PasswordField senhaAtual;
     @FXML
-    private TextField novaSenha;
+    private PasswordField novaSenha;
     @FXML
     private Button confirmar;
     @FXML
@@ -45,6 +46,12 @@ public class EdicaoSenhaUsuarioController {
             if(controller.editaSenhaUsuario(senhaNova, senhaAtual, usuarioLogado)){
                 this.fechar();
             }
+        }else{
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Aviso!");
+            alerta.setHeaderText("Um espaço não foi preenchido!");
+            alerta.setContentText("por favor preencha todos espaços");
+            alerta.show();
         }
     }
 

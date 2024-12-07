@@ -448,6 +448,19 @@
       "nomeEvento": "Maratona de Cinema"
     },
     {
+      "evento": "20250620.Feira de Empreendedorismo.abd281e1-30ce-4e52-bb9e-9a90fb0881dc",
+      "preco": 30.0,
+      "ativo": true,
+      "data": "2025-06-20",
+      "recibo": {
+        "dataCompra": "2024-12-07",
+        "valorPago": 30.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "20/06/2025",
+      "nomeEvento": "Feira de Empreendedorismo"
+    },
+    {
       "evento": "20250722.Festival Gastronômico.fccab1f7-edfd-416b-9df1-0b5b1d9a65b5",
       "preco": 120.0,
       "ativo": true,
@@ -554,6 +567,8 @@
   ],
   "admin": false,
   "notificacoes": [
+    "07/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $30.0",
+    "Seu evento Maratona de Cinema está chegando em 24 dias",
     "Seu evento Maratona de Cinema está chegando em 25 dias",
     "06/12/2024 Compra de Ingresso realizada: forma de pagamento: Débito, de $250.0",
     "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Débito, de $15.0",
