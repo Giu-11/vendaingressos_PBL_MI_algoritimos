@@ -72,34 +72,7 @@ public class EventoController {
 
         this.colocaIngressosRestantes();
 
-        Controller controller = new Controller();
-        if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
-            Tooltip tooltip = new Tooltip("Não é possível comentar em evento que você não possui um ingresso");
-            Tooltip.install(this.comentar, tooltip);
-            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20 ");
-            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
-            //this.comentar.setDisable(true);
-        } else if(controller.usuarioJaComentou(this.evento, this.usuarioLogado)){
-            Tooltip tooltip = new Tooltip("Não é possível comentar em um evento mais de uma vez");
-            Tooltip.install(this.comentar, tooltip);
-            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
-            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
-            //this.comentar.setDisable(true);
-        }
-
-        if(this.evento.isAtivo()){
-            Tooltip tooltip = new Tooltip("Não é possível comentar em eventos que não aconteceram");
-            Tooltip.install(this.comentar, tooltip);
-            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
-            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
-            //.comentar.setDisable(true);
-        } else {
-            Tooltip tooltip = new Tooltip("Não é possível comprar um evento que já passou");
-            Tooltip.install(this.comprar, tooltip);
-            this.comprar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
-            this.comprar.setTextFill(Paint.valueOf("#EDCEE0"));
-            //this.comprar.setDisable(true);
-        }
+        this.atualizaBotoes();
 
         this.colocaComentarios();
     }
@@ -128,7 +101,7 @@ public class EventoController {
      */
     @FXML
     private void comprarAction(){
-        if(this.evento.isAtivo()) {
+        if(this.evento.isAtivo() && this.evento.getAssentosComprados()<this.evento.getTotalAssentos()) {
             try {
                 CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PopUpCompra.fxml"));
@@ -139,7 +112,9 @@ public class EventoController {
                 stage.getIcons().add(new Image(getClass().getResource("/icons/carrinho.png").toExternalForm()));
                 stage.setScene(new Scene(root));
 
-                stage.setOnHidden(evnt -> {this.colocaIngressosRestantes();});
+                stage.setOnHidden(evnt -> {
+                    this.colocaIngressosRestantes();
+                    this.atualizaBotoes();});
 
                 stage.show();
             } catch (IOException e) {
@@ -165,7 +140,9 @@ public class EventoController {
                 stage.getIcons().add(new Image(getClass().getResource("/icons/comentario.png").toExternalForm()));
                 stage.setScene(new Scene(root));
 
-                stage.setOnHidden(event -> {this.colocaComentarios();});
+                stage.setOnHidden(event -> {
+                    this.colocaComentarios();
+                    this.atualizaBotoes();});
 
                 stage.show();
             } catch (IOException e) {
@@ -203,6 +180,37 @@ public class EventoController {
             this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
         } else {
             this.ingressosDisponiveis.setText("Esse evento já terminou");
+        }
+    }
+
+    private void atualizaBotoes(){
+        Controller controller = new Controller();
+        if(!controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento)){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em evento que você não possui um ingresso");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20 ");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comentar.setDisable(true);
+        } else if(controller.usuarioJaComentou(this.evento, this.usuarioLogado)){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em um evento mais de uma vez");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comentar.setDisable(true);
+        }
+
+        if(this.evento.isAtivo()){
+            Tooltip tooltip = new Tooltip("Não é possível comentar em eventos que não aconteceram");
+            Tooltip.install(this.comentar, tooltip);
+            this.comentar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comentar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //.comentar.setDisable(true);
+        } else {
+            Tooltip tooltip = new Tooltip("Não é possível comprar um evento que já passou");
+            Tooltip.install(this.comprar, tooltip);
+            this.comprar.setStyle("-fx-background-color: #a291cf; -fx-background-radius: 20");
+            this.comprar.setTextFill(Paint.valueOf("#EDCEE0"));
+            //this.comprar.setDisable(true);
         }
     }
 }

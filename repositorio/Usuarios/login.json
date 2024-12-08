@@ -487,6 +487,58 @@
       "nomeEvento": "Curso de Culinária Gourmet"
     },
     {
+      "evento": "20251108.Curso de Culinária Gourmet.4156fb42-2a26-4ea8-be87-642004dd1abe",
+      "preco": 250.0,
+      "ativo": true,
+      "data": "2025-11-08",
+      "recibo": {
+        "dataCompra": "2024-12-08",
+        "valorPago": 250.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "08/11/2025",
+      "nomeEvento": "Curso de Culinária Gourmet"
+    },
+    {
+      "evento": "20251108.Curso de Culinária Gourmet.4156fb42-2a26-4ea8-be87-642004dd1abe",
+      "preco": 250.0,
+      "ativo": true,
+      "data": "2025-11-08",
+      "recibo": {
+        "dataCompra": "2024-12-08",
+        "valorPago": 250.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "08/11/2025",
+      "nomeEvento": "Curso de Culinária Gourmet"
+    },
+    {
+      "evento": "20251108.Curso de Culinária Gourmet.4156fb42-2a26-4ea8-be87-642004dd1abe",
+      "preco": 250.0,
+      "ativo": true,
+      "data": "2025-11-08",
+      "recibo": {
+        "dataCompra": "2024-12-08",
+        "valorPago": 250.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "08/11/2025",
+      "nomeEvento": "Curso de Culinária Gourmet"
+    },
+    {
+      "evento": "20251108.Curso de Culinária Gourmet.4156fb42-2a26-4ea8-be87-642004dd1abe",
+      "preco": 250.0,
+      "ativo": true,
+      "data": "2025-11-08",
+      "recibo": {
+        "dataCompra": "2024-12-08",
+        "valorPago": 250.0,
+        "formaPagamento": "Crédito"
+      },
+      "dataformatada": "08/11/2025",
+      "nomeEvento": "Curso de Culinária Gourmet"
+    },
+    {
       "evento": "20251210.Teatro de Improviso.5d941f5e-0ebb-4105-9e67-4ce01abc1b0e",
       "preco": 60.0,
       "ativo": true,
@@ -567,6 +619,10 @@
   ],
   "admin": false,
   "notificacoes": [
+    "08/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $250.0",
+    "08/12/2024 Compra de Ingresso realizada: forma de pagamento: PIX, de $250.0",
+    "08/12/2024 Compra de Ingresso realizada: forma de pagamento: PIX, de $250.0",
+    "08/12/2024 Compra de Ingresso realizada: forma de pagamento: PIX, de $250.0",
     "Seu evento Maratona de Cinema está chegando em 23 dias",
     "Seu evento Maratona de Cinema está chegando em 24 dias",
     "07/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $30.0",

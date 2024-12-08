@@ -44,7 +44,14 @@ public class CompraController {
     }
 
     public void initialize(){
-        quantidade.getItems().addAll(1, 2, 3, 4, 5);
+        int assentosDisponeiveis = this.evento.getTotalAssentos()-this.evento.getAssentosComprados();
+        if(assentosDisponeiveis<5){
+            for(int i=1; i<assentosDisponeiveis+1; i++){
+                quantidade.getItems().add(i);
+            }
+        }else {
+            quantidade.getItems().addAll(1, 2, 3, 4, 5);
+        }
         quantidade.setValue(1);
 
         pagamento.getItems().addAll("PIX", "Crédito", "Débito");
