@@ -1,6 +1,6 @@
 {
   "login": "login",
-  "senha": "1",
+  "senha": "senha123",
   "nome": "Silva da Silva Silva",
   "cpf": "123456789",
   "email": "novoemail@gmail.com",
@@ -567,8 +567,9 @@
   ],
   "admin": false,
   "notificacoes": [
-    "07/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $30.0",
+    "Seu evento Maratona de Cinema está chegando em 23 dias",
     "Seu evento Maratona de Cinema está chegando em 24 dias",
+    "07/12/2024 Compra de Ingresso realizada: forma de pagamento: Crédito, de $30.0",
     "Seu evento Maratona de Cinema está chegando em 25 dias",
     "06/12/2024 Compra de Ingresso realizada: forma de pagamento: Débito, de $250.0",
     "05/12/2024 Compra de Ingresso realizada: forma de pagamento: Débito, de $15.0",

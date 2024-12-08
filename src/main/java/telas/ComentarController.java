@@ -13,6 +13,7 @@
 package telas;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
@@ -38,8 +39,24 @@ public class ComentarController {
     @FXML
     public void comentarAction(){
         String comentario = this.comentarioTexto.getText();
-        Controller controller = new Controller();
-        controller.adicionaComentario(this.evento, this.usuariologado, comentario);
+        if(!comentario.isEmpty()) {
+            Controller controller = new Controller();
+            controller.adicionaComentario(this.evento, this.usuariologado, comentario);
+            this.fechar();
+        }else{
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Aviso!");
+            alerta.setHeaderText("Por favor preencha todos campos");
+            alerta.show();
+        }
+    }
+
+    @FXML
+    public void cancelarAction(){
+        this.fechar();
+    }
+
+    private void fechar(){
         Stage stage = (Stage) this.comentar.getScene().getWindow();
         stage.close();
     }
