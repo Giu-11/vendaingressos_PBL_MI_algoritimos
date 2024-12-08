@@ -45,6 +45,11 @@ public class EdicaoSenhaUsuarioController {
             Controller controller = new Controller();
             if(controller.editaSenhaUsuario(senhaNova, senhaAtual, usuarioLogado)){
                 this.fechar();
+            }else{
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Aviso!");
+                alerta.setHeaderText("Senha atual incorreta");
+                alerta.show();
             }
         }else{
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
