@@ -15,7 +15,9 @@ package telas;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-
+/**
+ * controla um comentário
+ */
 public class ComantarioController {
     @FXML
     private Label usuario;
@@ -25,6 +27,7 @@ public class ComantarioController {
     private final String textoComentario;
     private final String nomeUsuario;
 
+    //construtor
     public ComantarioController(String nomeUsuario, String textoComentario) {
         this.nomeUsuario = nomeUsuario;
         this.textoComentario = textoComentario;

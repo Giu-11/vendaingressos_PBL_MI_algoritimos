@@ -192,6 +192,12 @@ public class Controller {
     }
 
 
+    /**
+     *
+     * @param nomeEvento nome do evento que deve ser encontrado
+     * @param somentefuturos se os resultados devem ser somente eventos que já aconteceram
+     * @return lista com eventos que possuem o nome em seu nome
+     */
     public List<Evento> buscaEventoNome(String nomeEvento, Boolean somentefuturos){
         List<Evento> eventos;
         Repositorio repositorio = new Repositorio();
@@ -238,6 +244,11 @@ public class Controller {
 
     }
 
+    /**
+     *
+     * @param novoCpf cpf novo do usuário
+     * @param usuario usuário que deve ter seu cpf modificado
+     */
     public void editaCpfUsuario(String novoCpf, Usuario usuario){
         Repositorio repositorio = new Repositorio();
         usuario.mudarCpf(novoCpf);
@@ -245,12 +256,22 @@ public class Controller {
     }
 
 
+    /**
+     * Cria notificações dos eventos que estão se aproximando notificações
+     * @param usuario usuário para qual as notificações são
+     */
     public void notificacaoEventos(Usuario usuario){
         usuario.novasNotificacoesEvento();
         usuario.limpaNotificacoes();
     }
 
 
+    /**
+     *
+     * @param evento evento que recebeu o comentário
+     * @param usuario usuário que comentou
+     * @param comemtario comentário feito pelo usuário
+     */
     public void adicionaComentario(Evento evento, Usuario usuario, String comemtario){
         if(this.usuarioPossuiIngresso(usuario, evento)){
             Repositorio repositorio = new Repositorio();

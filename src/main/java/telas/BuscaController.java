@@ -31,6 +31,9 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * controla a tela de busca
+ */
 public class BuscaController {
 
     private final Usuario usuarioLogado;
@@ -48,10 +51,14 @@ public class BuscaController {
     @FXML
     private VBox eventos;
 
+    //construtor
     BuscaController(Usuario usuario){
         this.usuarioLogado = usuario;
     }
 
+    /**
+     * retorna a tela inicial
+     */
     @FXML
     private void homeAction(){
         try{
@@ -68,6 +75,9 @@ public class BuscaController {
         }
     }
 
+    /**
+     * faz a busca e mostra os resultados na tela
+     */
     @FXML
     private void buscarAction(){
         this.eventos.getChildren().clear();

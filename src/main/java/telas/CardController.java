@@ -29,6 +29,9 @@ import vendaingressos.Controller;
 
 import java.io.IOException;
 
+/**
+ * controla um card de um evento
+ */
 public class CardController {
 
     @FXML
@@ -41,6 +44,7 @@ public class CardController {
     private String idEvento;
     private Usuario usuariologado;
 
+    //construtor usando ingresso
     CardController(Ingresso ingresso, Usuario usuario){
         this.nome = ingresso.getNomeEvento();
         this.data = ingresso.getDataformatada();
@@ -48,6 +52,7 @@ public class CardController {
         this.usuariologado = usuario;
     }
 
+    //construtor usando evento
     CardController(Evento evento, Usuario usuario){
         this.nome = evento.getNome();
         this.data = evento.getDataformatada();
@@ -60,6 +65,7 @@ public class CardController {
         this.dataEvento.setText(this.data);
     }
 
+    //abre a tela do evento
     @FXML
     private void nomeEventoAction(){
         try{

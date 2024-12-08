@@ -32,6 +32,9 @@ import vendaingressos.Usuario;
 
 import java.io.IOException;
 
+/**
+ * controla a tela inicial
+ */
 public class PrincipalController {
 
     @FXML
@@ -47,11 +50,24 @@ public class PrincipalController {
 
     private Usuario usuarioLogado;
 
+    //construtor
     public PrincipalController(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
-    public void colocaEventos() {
+    public void initialize() {
+        Controller controller = new Controller();
+
+        this.teste.setText(this.usuarioLogado.getNome());
+
+        this.colocaEventos();
+        this.colocanotificacoes();
+    }
+
+    /**
+     * Cria e coloca na lista os eventos do usuário
+     */
+    private void colocaEventos() {
         for (Ingresso ingresso : usuarioLogado.getIngressos()) {
             try {
                 CardController cardController = new CardController(ingresso, usuarioLogado);
@@ -68,7 +84,10 @@ public class PrincipalController {
         }
     }
 
-    public void colocanotificacoes(){
+    /**
+     * Cria e coloca as notificações na lista
+     */
+    private void colocanotificacoes(){
         for (String notificacao : usuarioLogado.getNotificacoes()) {
             try {
                 NotificacoesController notificacaoController = new NotificacoesController(notificacao);
@@ -86,15 +105,9 @@ public class PrincipalController {
     }
 
 
-    public void initialize() {
-        Controller controller = new Controller();
-
-        this.teste.setText(this.usuarioLogado.getNome());
-
-        this.colocaEventos();
-        this.colocanotificacoes();
-    }
-
+    /**
+     * Abre a tela de busca
+     */
     @FXML
     private void buscaAction(){
         try{
@@ -111,6 +124,9 @@ public class PrincipalController {
         }
     }
 
+    /**
+     * Abre a tela de dados do usuário
+     */
     @FXML
     private void usuarioAction(){
         try{

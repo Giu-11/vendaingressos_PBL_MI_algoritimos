@@ -1,0 +1,26 @@
+{
+  "login": "batatinha",
+  "senha": "000",
+  "nome": "giulia",
+  "cpf": "0008uhug",
+  "email": "kjhkhkj",
+  "ingressos": [
+    {
+      "evento": "20250722.Festival Gastronômico.fccab1f7-edfd-416b-9df1-0b5b1d9a65b5",
+      "preco": 120.0,
+      "ativo": true,
+      "data": "2025-07-22",
+      "recibo": {
+        "dataCompra": "2024-12-08",
+        "valorPago": 120.0,
+        "formaPagamento": "PIX"
+      },
+      "dataformatada": "22/07/2025",
+      "nomeEvento": "Festival Gastronômico"
+    }
+  ],
+  "admin": false,
+  "notificacoes": [
+    "08/12/2024 Compra de Ingresso realizada: forma de pagamento: PIX, de $120.0"
+  ]
+}

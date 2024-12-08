@@ -25,6 +25,9 @@ import vendaingressos.Usuario;
 
 import java.io.IOException;
 
+/**
+ * controla a tela de login
+ */
 public class LoginController {
 
     @FXML
@@ -36,6 +39,9 @@ public class LoginController {
     @FXML
     private Button criarConta;
 
+    /**
+     * Confirma se o login e senha estão corretos quando o botão de entrar é clicado
+     */
     @FXML
     private void entrarAction(){
         Controller controller = new Controller();
@@ -55,6 +61,9 @@ public class LoginController {
         }
     }
 
+    /**
+     * abre a tela de criar conta
+     */
     @FXML
     private void criarContaAction(){
         try{
@@ -74,6 +83,10 @@ public class LoginController {
         }
     }
 
+    /**
+     * abre a tela inicial
+     * @param usuario usuário que fez login
+     */
     private void irTelaInicial(Usuario usuario){
         try{
             PrincipalController controllerTela = new PrincipalController(usuario);
@@ -89,7 +102,10 @@ public class LoginController {
         }
     }
 
-    public void avisoErroLoginSenha(){
+    /**
+     * mostra um aviso caso o login e a senha estejam incorretos
+     */
+    private void avisoErroLoginSenha(){
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Aviso!");
         alerta.setHeaderText("Login ou senha incorretos");

@@ -20,6 +20,9 @@ import javafx.scene.paint.Paint;
 
 import java.util.Objects;
 
+/**
+ * Controla uma notificação
+ */
 public class NotificacoesController {
 
     @FXML
@@ -29,6 +32,7 @@ public class NotificacoesController {
 
     private String texto;
 
+    //construtor
     public NotificacoesController(String notificacao){
         this.texto = notificacao;
     }

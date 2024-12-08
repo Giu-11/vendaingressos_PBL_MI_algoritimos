@@ -32,6 +32,9 @@ import vendaingressos.Controller;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * controla a tela de evento
+ */
 public class EventoController {
     private Usuario usuarioLogado;
     private Evento evento;
@@ -55,6 +58,7 @@ public class EventoController {
     @FXML
     private Label descricao;
 
+    //construtor
     EventoController(Usuario usuario, Evento evento){
         this.evento = evento;
         this.usuarioLogado = usuario;
@@ -100,8 +104,11 @@ public class EventoController {
         this.colocaComentarios();
     }
 
+    /**
+     * retorna a tela inicial
+     */
     @FXML
-    public void homeAction(){
+    private void homeAction(){
         try{
             PrincipalController controllerTela = new PrincipalController(usuarioLogado);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/TelaPrincipal.fxml"));
@@ -116,8 +123,11 @@ public class EventoController {
         }
     }
 
+    /**
+     * se possível, abre a tela de compra e atualiza a quantidade de ingressos após ela ser fechada
+     */
     @FXML
-    public void comprarAction(){
+    private void comprarAction(){
         if(this.evento.isAtivo()) {
             try {
                 CompraController compraController = new CompraController(this.evento, this.usuarioLogado);
@@ -138,8 +148,11 @@ public class EventoController {
         }
     }
 
+    /**
+     * se possível, abre a tela de comentar
+     */
     @FXML
-    public void comentarAction(){
+    private void comentarAction(){
         Controller controller = new Controller();
         if(!(this.evento.isAtivo() || !controller.usuarioPossuiIngresso(this.usuarioLogado, this.evento) || controller.usuarioJaComentou(this.evento, this.usuarioLogado))) {
             try {
@@ -161,7 +174,10 @@ public class EventoController {
         }
     }
 
-    public void colocaComentarios(){
+    /**
+     * cria e coloca os comentários do evento
+     */
+    private void colocaComentarios(){
         for(Map.Entry<String, String> comentario: this.evento.getComentarios().entrySet()){
             String usuario = comentario.getKey();
             String textoComentario = comentario.getValue();
@@ -179,7 +195,10 @@ public class EventoController {
         }
     }
 
-    public void colocaIngressosRestantes(){
+    /**
+     * mostra na tela quantos ingressos estão disponíveis
+     */
+    private void colocaIngressosRestantes(){
         if(this.evento.isAtivo()){
             this.ingressosDisponiveis.setText(this.evento.getTotalAssentos() - this.evento.getAssentosComprados() + " Ingressos disponíveis!!");
         } else {

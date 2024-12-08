@@ -24,6 +24,9 @@ import vendaingressos.Usuario;
 
 import java.io.IOException;
 
+/**
+ * controla a tela de usuário
+ */
 public class UsuarioController {
 
     @FXML
@@ -44,6 +47,7 @@ public class UsuarioController {
     private final Usuario usuarioLogado;
 
 
+    //construtor
     public UsuarioController(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
@@ -52,8 +56,12 @@ public class UsuarioController {
         this.colocarDados();
     }
 
+
+    /**
+     * abre a tela de mudança de dados e atualiza a tela quando ela é fechada
+     */
     @FXML
-    public void mudarDadosAction(){
+    private void mudarDadosAction(){
         try {
             EdicaoDadosUsuarioController edicaoDadosUsuarioController = new EdicaoDadosUsuarioController(this.usuarioLogado);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/edicaoDadosUsuario.fxml"));
@@ -72,8 +80,11 @@ public class UsuarioController {
         }
     }
 
+    /**
+     * abre a tela de mudança de senha
+     */
     @FXML
-    public void mudarSenhaAction(){
+    private void mudarSenhaAction(){
         try {
             EdicaoSenhaUsuarioController edicaoSenhaUsuarioController = new EdicaoSenhaUsuarioController(this.usuarioLogado);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/edicaoSenhaUsuario.fxml"));
@@ -89,8 +100,11 @@ public class UsuarioController {
         }
     }
 
+    /**
+     * retorna a tela inicial
+     */
     @FXML
-    public void homeAction(){
+    private void homeAction(){
         try{
             PrincipalController controllerTela = new PrincipalController(usuarioLogado);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/TelaPrincipal.fxml"));
@@ -105,7 +119,10 @@ public class UsuarioController {
         }
     }
 
-    public void colocarDados(){
+    /**
+     * coloca os dados do usuário na tela
+     */
+    private void colocarDados(){
         this.nomeUsuario.setText(this.usuarioLogado.getNome());
         this.loginUsuario.setText(this.usuarioLogado.getLogin());
         this.emailUsuario.setText(this.usuarioLogado.getEmail());

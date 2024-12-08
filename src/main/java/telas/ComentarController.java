@@ -1,7 +1,7 @@
 /*******************************************************************************************
  Autor: Giulia Aguiar Loula
  Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
- Concluído em: 07/12/2024
+ Concluído em: 08/12/2024
  Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
  trecho de código de outro colega ou de outro autor, tais como provindos de livros e
  apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -21,6 +21,9 @@ import vendaingressos.Controller;
 import vendaingressos.Evento;
 import vendaingressos.Usuario;
 
+/**
+ * controla a tela de comentar
+ */
 public class ComentarController {
 
     @FXML
@@ -31,13 +34,17 @@ public class ComentarController {
     private final Usuario usuariologado;
     private final Evento evento;
 
+    //construtor
     public ComentarController(Evento evento, Usuario usuariologado) {
         this.evento = evento;
         this.usuariologado = usuariologado;
     }
 
+    /**
+     * adiciona o comentário
+     */
     @FXML
-    public void comentarAction(){
+    private void comentarAction(){
         String comentario = this.comentarioTexto.getText();
         if(!comentario.isEmpty()) {
             Controller controller = new Controller();
@@ -51,11 +58,17 @@ public class ComentarController {
         }
     }
 
+    /**
+     * fecha a janela
+     */
     @FXML
-    public void cancelarAction(){
+    private void cancelarAction(){
         this.fechar();
     }
 
+    /**
+     * fecha a janela
+     */
     private void fechar(){
         Stage stage = (Stage) this.comentar.getScene().getWindow();
         stage.close();

@@ -1,7 +1,7 @@
 /*******************************************************************************************
  Autor: Giulia Aguiar Loula
  Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
- Concluído em: 07/12/2024
+ Concluído em: 08/12/2024
  Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
  trecho de código de outro colega ou de outro autor, tais como provindos de livros e
  apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -21,6 +21,9 @@ import vendaingressos.Controller;
 import vendaingressos.Evento;
 import vendaingressos.Usuario;
 
+/**
+ * controla a tela de compra
+ */
 public class CompraController {
     @FXML
     private ChoiceBox<Integer> quantidade;
@@ -34,6 +37,7 @@ public class CompraController {
     private final Usuario usuarioLogado;
     private final Evento evento;
 
+    // construtor
     public CompraController(Evento evento, Usuario usuarioLogado) {
         this.evento = evento;
         this.usuarioLogado = usuarioLogado;
@@ -46,8 +50,11 @@ public class CompraController {
         pagamento.getItems().addAll("PIX", "Crédito", "Débito");
     }
 
+    /**
+     * faz a compra caso todas as opções estejam selecionadas
+     */
     @FXML
-    public void comprarAction(){
+    private void comprarAction(){
         String formaPagamento = this.pagamento.getValue();
         Integer quantidade = this.quantidade.getValue();
         if(formaPagamento != null && quantidade != null){
@@ -58,6 +65,7 @@ public class CompraController {
                 }
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("confirmação");
+                alerta.setContentText("Compra feita com sucesso");
                 alerta.show();
                 this.cancelarAction();
             } else {
@@ -69,13 +77,19 @@ public class CompraController {
         }
     }
 
+    /**
+     * fecha a janela
+     */
     @FXML
-    public void cancelarAction(){
+    private void cancelarAction(){
         Stage stage = (Stage) this.cancelar.getScene().getWindow();
         stage.close();
     }
 
-    public void avisoNaoSelecionado(){
+    /**
+     * gera um aviso que uma opção não foi selecionada
+     */
+    private void avisoNaoSelecionado(){
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Aviso!");
         alerta.setHeaderText("Pagamento ou quantidade não foi selecionado");

@@ -26,6 +26,9 @@ import java.io.IOException;
 import vendaingressos.Controller;
 import vendaingressos.Usuario;
 
+/**
+ * controla a tela de criar usuário
+ */
 public class CriarUsuarioController {
     @FXML
     private Button contaExistente;
@@ -40,6 +43,9 @@ public class CriarUsuarioController {
     @FXML
     private TextField emailImput;
 
+    /**
+     * vai para a tela de login
+     */
     @FXML
     private void contaExistenteAction(){
         try{
@@ -54,6 +60,9 @@ public class CriarUsuarioController {
         }
     }
 
+    /**
+     * cria uma conta caso todos os espaços tenham sido preenchidos
+     */
     @FXML
     private void criarAction(){
         String login = loginInput.getText();
@@ -78,7 +87,10 @@ public class CriarUsuarioController {
         }
     }
 
-    public void avisoPreencherTudo(){
+    /**
+     * abre um aviso para quando os compos não foram preenchidos
+     */
+    private void avisoPreencherTudo(){
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Aviso!");
         alerta.setHeaderText("Campo(s) não preenchido(s)");

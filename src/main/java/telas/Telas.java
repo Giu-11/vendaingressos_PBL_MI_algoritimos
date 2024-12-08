@@ -20,6 +20,9 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
+/**
+ * inicia o sistema na tela de login
+ */
 public class Telas extends Application {
         @Override
         public void start(Stage stage) throws IOException {

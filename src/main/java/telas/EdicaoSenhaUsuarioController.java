@@ -1,7 +1,7 @@
 /*******************************************************************************************
  Autor: Giulia Aguiar Loula
  Componente Curricular: EXA863 - MI - PROGRAMAÇÃO
- Concluído em: 07/12/2024
+ Concluído em: 08/12/2024
  Declaro que este código foi elaborado por mim de forma individual e não contêm nenhum
  trecho de código de outro colega ou de outro autor, tais como provindos de livros e
  apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
@@ -20,6 +20,9 @@ import javafx.stage.Stage;
 import vendaingressos.Controller;
 import vendaingressos.Usuario;
 
+/**
+ * controla a tela de edição de senha
+ */
 public class EdicaoSenhaUsuarioController {
     @FXML
     private PasswordField senhaAtual;
@@ -32,12 +35,16 @@ public class EdicaoSenhaUsuarioController {
 
     private final Usuario usuarioLogado;
 
+    //construtor
     public EdicaoSenhaUsuarioController(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
+    /**
+     * confirma se a senha atual está correta e caso esteja, muda para a nova senha
+     */
     @FXML
-    public void confirmarAction(){
+    private void confirmarAction(){
         String senhaAtual = this.senhaAtual.getText();
         String senhaNova = this.novaSenha.getText();
 
@@ -60,12 +67,18 @@ public class EdicaoSenhaUsuarioController {
         }
     }
 
+    /**
+     * fecha a janela
+     */
     @FXML
-    public void cancelarAction(){
+    private void cancelarAction(){
         this.fechar();
     }
 
-    public void fechar(){
+    /**
+     * fecha a janela
+     */
+    private void fechar(){
         Stage stage = (Stage) this.cancelar.getScene().getWindow();
         stage.close();
     }

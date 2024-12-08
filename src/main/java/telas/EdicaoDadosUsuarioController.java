@@ -19,6 +19,9 @@ import javafx.stage.Stage;
 import vendaingressos.Controller;
 import vendaingressos.Usuario;
 
+/**
+ * controla a tela de edição de dados
+ */
 public class EdicaoDadosUsuarioController {
     @FXML
     private TextField novoNome;
@@ -33,12 +36,16 @@ public class EdicaoDadosUsuarioController {
 
     private final Usuario usuarioLogado;
 
+    //construtor
     public EdicaoDadosUsuarioController(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
+    /**
+     * muda os dados que foram preenchidos
+     */
     @FXML
-    public void confirmarAction(){
+    private void confirmarAction(){
         Controller controller = new Controller();
         String nome = this.novoNome.getText();
         if(!nome.isEmpty()){
@@ -56,12 +63,18 @@ public class EdicaoDadosUsuarioController {
         this.fechar();
     }
 
+    /**
+     * fecha a janela
+     */
     @FXML
-    public void cancelarAction(){
+    private void cancelarAction(){
         this.fechar();
     }
 
-    public void fechar(){
+    /**
+     * fecha a janela
+     */
+    private void fechar(){
         Stage stage = (Stage) this.cancelar.getScene().getWindow();
         stage.close();
     }

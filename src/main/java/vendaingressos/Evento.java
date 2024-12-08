@@ -163,6 +163,11 @@ public class Evento {
         }
     }
 
+    /**
+     *
+     * @param usuario
+     * @return se o usuário já comentou ou não
+     */
     public Boolean usuarioJaComentou(Usuario usuario){
         return this.comentarios.containsKey(usuario.getNome());
     }

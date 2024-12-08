@@ -157,16 +157,27 @@ public class Usuario {
         ingressos.remove(ingresso);
     }
 
+    /**
+     *
+     * @param notificacao texto da notificação que deve ser adicionada
+     */
     private void addNotificacao(String notificacao){
         if(notificacao != null) {
             this.notificacoes.add(0, notificacao);
         }
     }
 
+    /**
+     *
+     * @param recibo adiciona o recibo de uma compra como notificação
+     */
     public void novaNotificacaoCompra(Recibo recibo){
         this.addNotificacao(recibo.toString());
     }
 
+    /**
+     * Busca nos eventos do usuário por eventos que estão a menos de 30 dias de distância, e cria uma notificação sobre eles
+     */
     public void novasNotificacoesEvento(){
         LocalDate hoje = LocalDate.now();
         for(Ingresso ingresso: this.ingressos){
@@ -183,6 +194,9 @@ public class Usuario {
         this.limpaNotificacoes();
     }
 
+    /**
+     * Remove notificações duplicadas e excedem o limite de 50
+     */
     public void limpaNotificacoes(){
         if (!(this.notificacoes instanceof ArrayList)) {
             this.notificacoes = new ArrayList<>(this.notificacoes);
